@@ -757,6 +757,34 @@ img {
   margin-top: .5rem;
 }
 
+.contact__social-btn {
+  display: inline-flex;
+  align-items: center;
+  column-gap: .75rem;
+  background-color: hsl(var(--hue), 40%, 14%);
+  color: var(--title-color);
+  padding: .85rem 1.5rem;
+  border-radius: .75rem;
+  font-weight: var(--font-semi-bold);
+  font-size: var(--normal-font-size);
+  border: 1px solid hsla(var(--hue), 55%, 55%, .35);
+  transition: background-color .3s, transform .3s, border-color .3s, box-shadow .3s;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.contact__social-btn:hover {
+  background-color: var(--first-color);
+  color: #fff;
+  border-color: var(--first-color-light);
+  transform: translateY(-.25rem);
+  box-shadow: 0 8px 24px hsla(var(--hue), 55%, 50%, .3);
+}
+
+.contact__social-btn i {
+  font-size: 1.35rem;
+}
+
 .contact__social-links {
   display: flex;
   column-gap: 1.25rem;
