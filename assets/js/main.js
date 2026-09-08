@@ -135,6 +135,7 @@ if (typeof ScrollReveal !== 'undefined') {
    })
 
    sr.reveal(`.home__data, .skills__card, .contact__container`)
+   sr.reveal(`.home__perfil`, { delay: 600, origin: 'right' })
    sr.reveal(`.home__scroll`, { delay: 800 })
    sr.reveal(`.work__card, .services__card`, { interval: 100 })
    sr.reveal(`.contact__box`, { origin: 'left' })

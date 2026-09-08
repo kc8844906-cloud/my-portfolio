@@ -331,16 +331,32 @@ img {
 
 .home__image {
   width: 280px;
+  height: 320px;
   border-radius: 2rem;
   overflow: hidden;
-  background: linear-gradient(180deg, hsla(var(--hue), 40%, 20%, 0) 0%, var(--container-color) 100%);
+  box-shadow: 0 16px 36px hsla(var(--hue), 40%, 8%, .6);
+  border: 3px solid hsla(var(--hue), 55%, 55%, .35);
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
+  transition: border-color .4s, box-shadow .4s;
+}
+
+.home__image:hover {
+  border-color: var(--first-color);
+  box-shadow: 0 20px 48px hsla(var(--hue), 55%, 50%, .3);
 }
 
 .home__img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform .4s ease;
+}
+
+.home__image:hover .home__img {
+  transform: scale(1.05);
 }
 
 /*=============== BUTTON ===============*/
@@ -952,7 +968,8 @@ img {
   }
 
   .home__image {
-    width: 420px;
+    width: 380px;
+    height: 420px;
   }
 
   .work__container {
