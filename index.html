@@ -4,6 +4,28 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+   <!-- Primary SEO Meta Tags -->
+   <title>Virander Kumar — Full Stack & Frontend Web Developer | Portfolio</title>
+   <meta name="title" content="Virander Kumar — Full Stack & Frontend Web Developer | Portfolio">
+   <meta name="description" content="Portfolio of Virander Kumar, a Full-Stack & Frontend Web Developer crafting fast, responsive, and modern web applications with React, Tailwind CSS, and JavaScript.">
+   <meta name="keywords" content="Virander Kumar, Web Developer, Frontend Developer, React Developer, Tailwind CSS, Portfolio, Full Stack Developer, JavaScript, Web Design">
+   <meta name="author" content="Virander Kumar">
+   <meta name="theme-color" content="#07090e">
+
+   <!-- Open Graph / Facebook -->
+   <meta property="og:type" content="website">
+   <meta property="og:url" content="https://my-portfolio-mu-five-38.vercel.app/">
+   <meta property="og:title" content="Virander Kumar — Web Developer Portfolio">
+   <meta property="og:description" content="Crafting high-performance, responsive, and visually stunning web applications. Explore my projects and get in touch.">
+   <meta property="og:image" content="preview.png">
+
+   <!-- Twitter -->
+   <meta property="twitter:card" content="summary_large_image">
+   <meta property="twitter:url" content="https://my-portfolio-mu-five-38.vercel.app/">
+   <meta property="twitter:title" content="Virander Kumar — Web Developer Portfolio">
+   <meta property="twitter:description" content="Crafting high-performance, responsive, and visually stunning web applications.">
+   <meta property="twitter:image" content="preview.png">
+
    <!--=============== FAVICON ===============-->
    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
 
@@ -12,362 +34,1131 @@
 
    <!--=============== CSS ===============-->
    <link rel="stylesheet" href="assets/css/styles.css">
-
-   <title>Virander Kumar - Web Developer Portfolio</title>
 </head>
 <body>
+   <!-- Top Scroll Progress -->
+   <div class="scroll-progress" id="scroll-progress"></div>
+
    <!--==================== HEADER ====================-->
    <header class="header" id="header">
       <nav class="nav container">
-         <a href="#home" class="nav__logo">Virander</a>
+         <a href="#home" class="nav__logo">
+            <span class="nav__logo-icon"><i class="ri-flashlight-fill"></i></span>
+            Virander<span class="nav__logo-dot">.dev</span>
+         </a>
 
          <div class="nav__menu" id="nav-menu">
             <ul class="nav__list">
                <li class="nav__item">
                   <a href="#home" class="nav__link active-link">Home</a>
                </li>
-
                <li class="nav__item">
-                  <a href="#work" class="nav__link">Work</a>
+                  <a href="#about" class="nav__link">About</a>
                </li>
-
                <li class="nav__item">
                   <a href="#skills" class="nav__link">Skills</a>
                </li>
-
+               <li class="nav__item">
+                  <a href="#work" class="nav__link">Projects</a>
+               </li>
                <li class="nav__item">
                   <a href="#services" class="nav__link">Services</a>
                </li>
-
                <li class="nav__item">
-                  <a href="#contact" class="nav__link">Contact Me</a>
+                  <a href="#experience" class="nav__link">Experience</a>
+               </li>
+               <li class="nav__item">
+                  <a href="#contact" class="nav__link">Contact</a>
                </li>
             </ul>
 
-            <!-- Close button -->
-            <div class="nav__close" id="nav-close">
-               <i class="ri-close-line"></i>
+            <div class="nav__menu-cta">
+               <a href="#contact" class="button button-primary button-sm">
+                  Let's Talk <i class="ri-chat-1-line"></i>
+               </a>
             </div>
+
+            <!-- Close button -->
+            <button class="nav__close" id="nav-close" aria-label="Close navigation menu">
+               <i class="ri-close-line"></i>
+            </button>
          </div>
 
-         <!-- Toggle button -->
-         <div class="nav__toggle" id="nav-toggle">
-            <i class="ri-menu-line"></i>
+         <!-- Header Actions -->
+         <div class="nav__actions">
+            <a href="#contact" class="button button-primary button-sm nav__btn-talk">
+               Let's Talk <i class="ri-arrow-right-up-line"></i>
+            </a>
+
+            <!-- Toggle button -->
+            <button class="nav__toggle" id="nav-toggle" aria-label="Open navigation menu">
+               <i class="ri-menu-3-line"></i>
+            </button>
          </div>
       </nav>
    </header>
    
    <!--==================== MAIN ====================-->
    <main class="main">
-      <!--==================== HOME ====================-->
-      <section class="home section" id="home">
-         <div class="home__container container grid">
-            <div class="home__data">
-               <h1 class="home__name">Virander <br> Kumar</h1>
-               <h3 class="home__profession">Web Developer</h3>
 
-               <a href="#work" class="home__scroll">
-                  <div class="home__scroll-box">
-                     <i class="ri-arrow-down-line"></i>
-                  </div>
-                  <span class="home__scroll-text">Recent Works</span>
-               </a>
-            </div>
-
-            <div class="home__perfil">
-               <div class="home__image">
-                  <img src="assets/img/virander.jpg" alt="Virander Kumar" class="home__img">
+      <!--==================== HERO SECTION ====================-->
+      <section class="hero section" id="home">
+         <div class="hero__container container grid">
+            <div class="hero__data">
+               <div class="status-badge">
+                  <span class="pulse-dot"></span>
+                  Available for Freelance & Full-Time Roles
                </div>
-            </div>
-         </div>
-      </section>
 
-      <!--==================== WORKS ====================-->
-      <section class="work section" id="work">
-         <h2 class="section__title">RECENT WORKS</h2>
+               <h1 class="hero__title">
+                  Hey, I'm <br>
+                  <span class="gradient-text">Virander Kumar</span>
+               </h1>
 
-         <div class="work__container container grid">
-            <!-- Work Card 1 -->
-            <article class="work__card">
-               <a href="#work" class="work__link">
-                  <div class="work__header">
-                     <h2 class="work__title">Restaurant Website</h2>
-                     <i class="ri-arrow-right-line work__icon"></i>
-                  </div>
-                  <p class="work__description">
-                     Short description of the project that was carried out in this portfolio.
-                  </p>
-                  <img src="assets/img/work-1.jpg" alt="Restaurant Website" class="work__img">
-               </a>
-            </article>
+               <h2 class="hero__subtitle">
+                  Full-Stack & Frontend Web Developer
+               </h2>
 
-            <!-- Work Card 2 -->
-            <article class="work__card">
-               <a href="#work" class="work__link">
-                  <div class="work__header">
-                     <h2 class="work__title">Design Of Products</h2>
-                     <i class="ri-arrow-right-line work__icon"></i>
-                  </div>
-                  <p class="work__description">
-                     Short description of the project that was carried out in this portfolio.
-                  </p>
-                  <img src="assets/img/work-2.jpg" alt="Design Of Products" class="work__img">
-               </a>
-            </article>
+               <p class="hero__description">
+                  I craft lightning-fast, visually stunning, and highly responsive web applications using React, modern JavaScript, and Tailwind CSS. Dedicated to turning complex concepts into seamless digital products.
+               </p>
 
-            <!-- Work Card 3 -->
-            <article class="work__card">
-               <a href="#work" class="work__link">
-                  <div class="work__header">
-                     <h2 class="work__title">Barbershop Website SEO</h2>
-                     <i class="ri-arrow-right-line work__icon"></i>
-                  </div>
-                  <p class="work__description">
-                     Short description of the project that was carried out in this portfolio.
-                  </p>
-                  <img src="assets/img/work-3.jpg" alt="Barbershop Website SEO" class="work__img">
-               </a>
-            </article>
-
-            <!-- Work Card 4 -->
-            <article class="work__card">
-               <a href="#work" class="work__link">
-                  <div class="work__header">
-                     <h2 class="work__title">Coffee Website</h2>
-                     <i class="ri-arrow-right-line work__icon"></i>
-                  </div>
-                  <p class="work__description">
-                     Short description of the project that was carried out in this portfolio.
-                  </p>
-                  <img src="assets/img/work-4.jpg" alt="Coffee Website" class="work__img">
-               </a>
-            </article>
-
-            <!-- Work Card 5 -->
-            <article class="work__card">
-               <a href="#work" class="work__link">
-                  <div class="work__header">
-                     <h2 class="work__title">Panel Design</h2>
-                     <i class="ri-arrow-right-line work__icon"></i>
-                  </div>
-                  <p class="work__description">
-                     Short description of the project that was carried out in this portfolio.
-                  </p>
-                  <img src="assets/img/work-5.jpg" alt="Panel Design" class="work__img">
-               </a>
-            </article>
-         </div>
-      </section>
-
-      <!--==================== SKILLS ====================-->
-      <section class="skills section" id="skills">
-         <h2 class="section__title">SKILLS</h2>
-
-         <div class="skills__container container">
-            <div class="skills__card info__card">
-               <div class="skills__content grid">
-                  <div class="skills__item">
-                     <img src="assets/img/info-html.svg" alt="HTML" class="skills__img">
-                     <span class="skills__name">HTML</span>
-                  </div>
-
-                  <div class="skills__item">
-                     <img src="assets/img/info-css.svg" alt="CSS" class="skills__img">
-                     <span class="skills__name">CSS</span>
-                  </div>
-
-                  <div class="skills__item">
-                     <img src="assets/img/info-javascript.svg" alt="JavaScript" class="skills__img">
-                     <span class="skills__name">JavaScript</span>
-                  </div>
-
-                  <div class="skills__item">
-                     <img src="assets/img/info-react.svg" alt="React" class="skills__img">
-                     <span class="skills__name">React</span>
-                  </div>
-
-                  <div class="skills__item">
-                     <img src="assets/img/info-git.svg" alt="Git" class="skills__img">
-                     <span class="skills__name">Git</span>
-                  </div>
-
-                  <div class="skills__item">
-                     <img src="assets/img/info-github.svg" alt="GitHub" class="skills__img">
-                     <span class="skills__name">GitHub</span>
-                  </div>
-
-                  <div class="skills__item">
-                     <img src="assets/img/info-tailwind-css.svg" alt="Tailwind CSS" class="skills__img">
-                     <span class="skills__name">Tailwind CSS</span>
-                  </div>
-
-                  <div class="skills__item">
-                     <img src="assets/img/info-sass.svg" alt="Sass" class="skills__img">
-                     <span class="skills__name">Sass</span>
-                  </div>
-
-                  <div class="skills__item">
-                     <img src="assets/img/info-figma.svg" alt="Figma" class="skills__img">
-                     <span class="skills__name">Figma</span>
-                  </div>
+               <div class="hero__buttons">
+                  <a href="#work" class="button button-primary">
+                     Explore Projects <i class="ri-arrow-right-line"></i>
+                  </a>
+                  <a href="#contact" class="button button-secondary">
+                     Get in Touch <i class="ri-mail-send-line"></i>
+                  </a>
+                  <a href="assets/pdf/Tailor-Cv.pdf" class="button button-ghost" download="Virander-Kumar-CV.pdf" target="_blank">
+                     Download CV <i class="ri-download-2-line"></i>
+                  </a>
                </div>
-            </div>
-         </div>
-      </section>
 
-      <!--==================== SERVICES ====================-->
-      <section class="services section" id="services">
-         <h2 class="section__title">SERVICES</h2>
-
-         <div class="services__container container grid">
-            <article class="services__card">
-               <i class="ri-code-s-slash-line services__icon"></i>
-               <h2 class="services__title">Web Development</h2>
-               <p class="services__description">
-                  Short description of the service offered to users to obtain a personalized project.
-               </p>
-            </article>
-
-            <article class="services__card">
-               <i class="ri-pen-nib-line services__icon"></i>
-               <h2 class="services__title">Web Design</h2>
-               <p class="services__description">
-                  Short description of the service offered to users to obtain a personalized project.
-               </p>
-            </article>
-
-            <article class="services__card">
-               <i class="ri-layout-3-line services__icon"></i>
-               <h2 class="services__title">Responsive Web Design</h2>
-               <p class="services__description">
-                  Short description of the service offered to users to obtain a personalized project.
-               </p>
-            </article>
-
-            <article class="services__card">
-               <i class="ri-search-eye-line services__icon"></i>
-               <h2 class="services__title">Seo (Web Pages)</h2>
-               <p class="services__description">
-                  Short description of the service offered to users to obtain a personalized project.
-               </p>
-            </article>
-         </div>
-      </section>
-
-      <!--==================== CONTACT ====================-->
-      <section class="contact section" id="contact">
-         <h2 class="section__title">CONTACT ME</h2>
-
-         <div class="contact__container container grid">
-            <!-- Contact Information Box -->
-            <div class="contact__box">
-               <h3 class="contact__box-title">Get In Touch</h3>
-
-               <div class="contact__data">
-                  <div class="contact__information">
-                     <i class="ri-user-3-line contact__icon"></i>
-                     <div>
-                        <h4 class="contact__subtitle">Name</h4>
-                        <span class="contact__description">Virander Kumar</span>
-                     </div>
+               <div class="hero__stats">
+                  <div class="hero__stat-item">
+                     <span class="hero__stat-number gradient-text">15+</span>
+                     <span class="hero__stat-label">Projects Built</span>
                   </div>
-
-                  <div class="contact__information">
-                     <i class="ri-mail-line contact__icon"></i>
-                     <div>
-                        <h4 class="contact__subtitle">Email</h4>
-                        <a href="mailto:KC8844906@gmail.com" class="contact__description contact__link">KC8844906@gmail.com</a>
-                     </div>
+                  <div class="hero__stat-item">
+                     <span class="hero__stat-number gradient-text">3+</span>
+                     <span class="hero__stat-label">Years Experience</span>
                   </div>
-
-                  <div class="contact__information">
-                     <i class="ri-phone-line contact__icon"></i>
-                     <div>
-                        <h4 class="contact__subtitle">Mobile No</h4>
-                        <a href="tel:8571840837" class="contact__description contact__link">+91 8571840837</a>
-                     </div>
-                  </div>
-
-                  <div class="contact__information">
-                     <i class="ri-whatsapp-line contact__icon"></i>
-                     <div>
-                        <h4 class="contact__subtitle">WhatsApp</h4>
-                        <a href="https://wa.me/918571840837" target="_blank" rel="noopener noreferrer" class="contact__description contact__link">Chat on WhatsApp</a>
-                     </div>
-                  </div>
-
-                  <div class="contact__information">
-                     <i class="ri-twitter-x-fill contact__icon"></i>
-                     <div>
-                        <h4 class="contact__subtitle">Twitter / X</h4>
-                        <a href="https://x.com/buradynamic?s=11" target="_blank" rel="noopener noreferrer" class="contact__description contact__link">@buradynamic</a>
-                     </div>
+                  <div class="hero__stat-item">
+                     <span class="hero__stat-number gradient-text">100%</span>
+                     <span class="hero__stat-label">Client Satisfaction</span>
                   </div>
                </div>
 
-               <div class="contact__social">
-                  <a href="https://x.com/buradynamic?s=11" target="_blank" rel="noopener noreferrer" class="contact__social-btn">
+               <div class="hero__socials">
+                  <a href="https://github.com/kc8844906-cloud" target="_blank" rel="noopener noreferrer" class="hero__social-link" title="GitHub">
+                     <i class="ri-github-fill"></i>
+                  </a>
+                  <a href="https://x.com/buradynamic?s=11" target="_blank" rel="noopener noreferrer" class="hero__social-link" title="Twitter / X">
                      <i class="ri-twitter-x-fill"></i>
-                     <span>Follow on Twitter / X</span>
+                  </a>
+                  <a href="https://wa.me/918571840837" target="_blank" rel="noopener noreferrer" class="hero__social-link" title="WhatsApp">
+                     <i class="ri-whatsapp-line"></i>
+                  </a>
+                  <a href="mailto:KC8844906@gmail.com" class="hero__social-link" title="Email Me">
+                     <i class="ri-mail-line"></i>
+                  </a>
+                  <a href="tel:8571840837" class="hero__social-link" title="Call Me">
+                     <i class="ri-phone-line"></i>
                   </a>
                </div>
             </div>
 
-            <!-- Contact Form -->
-            <form action="" class="contact__form" id="contact-form">
-               <div class="contact__group">
-                  <input type="text" name="user_name" placeholder="Your Name" required class="contact__input">
-                  <input type="email" name="user_email" placeholder="Your Email" required class="contact__input">
+            <!-- Profile Visual -->
+            <div class="hero__visual">
+               <div class="hero__image-wrapper">
+                  <div class="hero__image-inner">
+                     <img src="assets/img/virander.jpg" alt="Virander Kumar - Web Developer" class="hero__img">
+                  </div>
                </div>
 
-               <textarea name="user_message" placeholder="Message" required class="contact__input contact__area"></textarea>
+               <!-- Floating micro badges -->
+               <div class="floating-badge badge-top">
+                  <i class="ri-flashlight-line"></i>
+                  <span>Fast & Optimized UI</span>
+               </div>
 
-               <button type="submit" class="button contact__button">Send Message</button>
+               <div class="floating-badge badge-bottom">
+                  <i class="ri-reactjs-line"></i>
+                  <span>React & Modern JS</span>
+               </div>
+            </div>
+         </div>
+      </section>
 
-               <p class="contact__message" id="contact-message"></p>
-            </form>
+      <!--==================== ABOUT SECTION ====================-->
+      <section class="about section" id="about">
+         <div class="container">
+            <div class="section__header">
+               <span class="section__tag"><i class="ri-user-smile-line"></i> Get To Know Me</span>
+               <h2 class="section__title">About <span class="gradient-text">Me</span></h2>
+               <p class="section__subtitle">
+                  Passionate web developer bridging the gap between innovative design and clean, scalable code.
+               </p>
+            </div>
+
+            <div class="about__container grid">
+               <div class="about__intro">
+                  <h3>Building seamless digital experiences with precision & purpose</h3>
+                  <p>
+                     Hello! I'm Virander Kumar, a dedicated web developer with over 3 years of hands-on experience crafting responsive frontends, dynamic web applications, and intuitive user experiences.
+                  </p>
+                  <p>
+                     My philosophy centers on clean code architecture, performance optimization, and modern UI aesthetics. Whether engineering a high-speed e-commerce interface, an interactive restaurant portal, or a SaaS dashboard, I focus on delivering products that look extraordinary and operate smoothly across every device.
+                  </p>
+
+                  <div class="about__highlights">
+                     <div class="highlight-card glass-card">
+                        <div class="highlight-icon"><i class="ri-speed-up-line"></i></div>
+                        <h4 class="highlight-title">Performance First</h4>
+                        <p class="highlight-desc">Optimized asset delivery, Core Web Vitals compliance, and sub-second load times.</p>
+                     </div>
+
+                     <div class="highlight-card glass-card">
+                        <div class="highlight-icon"><i class="ri-layout-masonry-line"></i></div>
+                        <h4 class="highlight-title">Modern Aesthetics</h4>
+                        <p class="highlight-desc">Glassmorphic UI, responsive grids, sleek typography, and thoughtful micro-interactions.</p>
+                     </div>
+
+                     <div class="highlight-card glass-card">
+                        <div class="highlight-icon"><i class="ri-code-box-line"></i></div>
+                        <h4 class="highlight-title">Clean Code</h4>
+                        <p class="highlight-desc">Modular, scalable components that are easy to maintain and future-proof.</p>
+                     </div>
+
+                     <div class="highlight-card glass-card">
+                        <div class="highlight-icon"><i class="ri-customer-service-2-line"></i></div>
+                        <h4 class="highlight-title">Reliable Delivery</h4>
+                        <p class="highlight-desc">Agile communication, quick iterations, and 100% commitment to project goals.</p>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- Bento Information Box -->
+               <div class="about__bento glass-card">
+                  <div class="bento__header">
+                     <h3 class="bento__title">Quick Facts</h3>
+                     <span class="bento__subtitle">// Developer Profile</span>
+                  </div>
+
+                  <div class="bento__facts">
+                     <div class="fact-item">
+                        <span class="fact-key"><i class="ri-map-pin-2-line"></i> Location</span>
+                        <span class="fact-value">India (Available Globally)</span>
+                     </div>
+                     <div class="fact-item">
+                        <span class="fact-key"><i class="ri-briefcase-line"></i> Work Status</span>
+                        <span class="fact-value">Available for Hire</span>
+                     </div>
+                     <div class="fact-item">
+                        <span class="fact-key"><i class="ri-terminal-box-line"></i> Core Stack</span>
+                        <span class="fact-value">React, JS, Tailwind, CSS</span>
+                     </div>
+                     <div class="fact-item">
+                        <span class="fact-key"><i class="ri-translate-2"></i> Languages</span>
+                        <span class="fact-value">English, Hindi</span>
+                     </div>
+                     <div class="fact-item">
+                        <span class="fact-key"><i class="ri-time-line"></i> Experience</span>
+                        <span class="fact-value">3+ Years Practical Dev</span>
+                     </div>
+                  </div>
+
+                  <div class="bento__quote">
+                     "Code is more than syntax; it's the medium through which we solve real human problems."
+                  </div>
+
+                  <a href="#contact" class="button button-primary">
+                     Let's Collaborate <i class="ri-send-plane-fill"></i>
+                  </a>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <!--==================== SKILLS SECTION ====================-->
+      <section class="skills section" id="skills">
+         <div class="container">
+            <div class="section__header">
+               <span class="section__tag"><i class="ri-stack-line"></i> Technical Toolbox</span>
+               <h2 class="section__title">Skills & <span class="gradient-text">Technologies</span></h2>
+               <p class="section__subtitle">
+                  The tools, languages, and frameworks I leverage to engineer robust, high-performance web solutions.
+               </p>
+            </div>
+
+            <div class="skills__tabs-container">
+               <!-- Category 1: Frontend Development -->
+               <div class="skills__category">
+                  <h3 class="skills__category-title">
+                     <i class="ri-computer-line"></i> Frontend Engineering
+                  </h3>
+                  <div class="skills__grid">
+                     <div class="skill__card glass-card">
+                        <div class="skill__icon-box">
+                           <img src="assets/img/info-react.svg" alt="React">
+                        </div>
+                        <span class="skill__name">React.js</span>
+                        <span class="skill__badge">Advanced</span>
+                     </div>
+
+                     <div class="skill__card glass-card">
+                        <div class="skill__icon-box">
+                           <img src="assets/img/info-javascript.svg" alt="JavaScript">
+                        </div>
+                        <span class="skill__name">JavaScript</span>
+                        <span class="skill__badge">ES6+ / Async</span>
+                     </div>
+
+                     <div class="skill__card glass-card">
+                        <div class="skill__icon-box">
+                           <img src="assets/img/info-tailwind-css.svg" alt="Tailwind CSS">
+                        </div>
+                        <span class="skill__name">Tailwind CSS</span>
+                        <span class="skill__badge">Expert</span>
+                     </div>
+
+                     <div class="skill__card glass-card">
+                        <div class="skill__icon-box">
+                           <img src="assets/img/info-html.svg" alt="HTML5">
+                        </div>
+                        <span class="skill__name">HTML5</span>
+                        <span class="skill__badge">Semantic</span>
+                     </div>
+
+                     <div class="skill__card glass-card">
+                        <div class="skill__icon-box">
+                           <img src="assets/img/info-css.svg" alt="CSS3">
+                        </div>
+                        <span class="skill__name">CSS3</span>
+                        <span class="skill__badge">Flexbox / Grid</span>
+                     </div>
+
+                     <div class="skill__card glass-card">
+                        <div class="skill__icon-box">
+                           <img src="assets/img/info-sass.svg" alt="Sass">
+                        </div>
+                        <span class="skill__name">Sass / SCSS</span>
+                        <span class="skill__badge">Modular</span>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- Category 2: Tools & Ecosystem -->
+               <div class="skills__category">
+                  <h3 class="skills__category-title">
+                     <i class="ri-tools-line"></i> Tools & Ecosystem
+                  </h3>
+                  <div class="skills__grid">
+                     <div class="skill__card glass-card">
+                        <div class="skill__icon-box">
+                           <img src="assets/img/info-git.svg" alt="Git">
+                        </div>
+                        <span class="skill__name">Git</span>
+                        <span class="skill__badge">Version Control</span>
+                     </div>
+
+                     <div class="skill__card glass-card">
+                        <div class="skill__icon-box">
+                           <img src="assets/img/info-github.svg" alt="GitHub">
+                        </div>
+                        <span class="skill__name">GitHub</span>
+                        <span class="skill__badge">Collaboration</span>
+                     </div>
+
+                     <div class="skill__card glass-card">
+                        <div class="skill__icon-box">
+                           <img src="assets/img/info-figma.svg" alt="Figma">
+                        </div>
+                        <span class="skill__name">Figma</span>
+                        <span class="skill__badge">UI / Prototyping</span>
+                     </div>
+
+                     <div class="skill__card glass-card">
+                        <div class="skill__icon-box">
+                           <i class="ri-flashlight-line"></i>
+                        </div>
+                        <span class="skill__name">Vite & Bun</span>
+                        <span class="skill__badge">Fast Tooling</span>
+                     </div>
+
+                     <div class="skill__card glass-card">
+                        <div class="skill__icon-box">
+                           <i class="ri-cloud-line"></i>
+                        </div>
+                        <span class="skill__name">Vercel & Netlify</span>
+                        <span class="skill__badge">Deployment</span>
+                     </div>
+
+                     <div class="skill__card glass-card">
+                        <div class="skill__icon-box">
+                           <i class="ri-database-2-line"></i>
+                        </div>
+                        <span class="skill__name">REST APIs</span>
+                        <span class="skill__badge">Integration</span>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- Category 3: Core Competencies -->
+               <div class="skills__category">
+                  <h3 class="skills__category-title">
+                     <i class="ri-shield-check-line"></i> Core Competencies
+                  </h3>
+                  <div class="skills__grid">
+                     <div class="skill__card glass-card">
+                        <div class="skill__icon-box">
+                           <i class="ri-smartphone-line"></i>
+                        </div>
+                        <span class="skill__name">Responsive Design</span>
+                        <span class="skill__badge">Mobile First</span>
+                     </div>
+
+                     <div class="skill__card glass-card">
+                        <div class="skill__icon-box">
+                           <i class="ri-search-eye-line"></i>
+                        </div>
+                        <span class="skill__name">SEO Optimization</span>
+                        <span class="skill__badge">Core Vitals</span>
+                     </div>
+
+                     <div class="skill__card glass-card">
+                        <div class="skill__icon-box">
+                           <i class="ri-speed-line"></i>
+                        </div>
+                        <span class="skill__name">Web Performance</span>
+                        <span class="skill__badge">Optimization</span>
+                     </div>
+
+                     <div class="skill__card glass-card">
+                        <div class="skill__icon-box">
+                           <i class="ri-palette-line"></i>
+                        </div>
+                        <span class="skill__name">UI / UX Craft</span>
+                        <span class="skill__badge">User Centric</span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <!--==================== WORKS / PROJECTS SECTION ====================-->
+      <section class="work section" id="work">
+         <div class="container">
+            <div class="section__header">
+               <span class="section__tag"><i class="ri-folder-open-line"></i> Creative Portfolio</span>
+               <h2 class="section__title">Featured <span class="gradient-text">Projects</span></h2>
+               <p class="section__subtitle">
+                  A curated collection of production web applications, landing pages, and interactive user interfaces.
+               </p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="work__filters">
+               <button class="filter-btn active-filter" data-filter="all">All Projects</button>
+               <button class="filter-btn" data-filter="web-app">Web Apps</button>
+               <button class="filter-btn" data-filter="landing-page">Landing Pages</button>
+               <button class="filter-btn" data-filter="ui-ux">UI / UX & Storefronts</button>
+            </div>
+
+            <!-- Project Cards Grid -->
+            <div class="work__grid" id="projects-container">
+
+               <!-- Project 1: CAF Cafe Crystal -->
+               <article class="project-card glass-card" data-category="web-app">
+                  <div class="project-thumb">
+                     <span class="project-category-tag">Web App</span>
+                     <span class="project-featured-badge">Featured</span>
+                     <img src="assets/img/work-4.jpg" alt="CAF Cafe Crystal - Specialty Coffee Platform">
+                  </div>
+                  <div class="project-details">
+                     <h3 class="project-title">CAF Cafe & Coffee Web App</h3>
+                     <p class="project-description">
+                        Full-featured specialty coffee digital platform with live ordering cart drawer, dynamic category filters, cinematic video integration, and responsive mobile UX.
+                     </p>
+                     <div class="project-tags">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Tailwind CSS</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">TanStack</span>
+                     </div>
+                     <div class="project-actions">
+                        <a href="https://github.com/kc8844906-cloud/caf-cafe-" target="_blank" rel="noopener noreferrer" class="button button-primary button-sm">
+                           Live Preview <i class="ri-external-link-line"></i>
+                        </a>
+                        <a href="https://github.com/kc8844906-cloud/caf-cafe-" target="_blank" rel="noopener noreferrer" class="button button-secondary button-sm">
+                           Source Code <i class="ri-github-line"></i>
+                        </a>
+                     </div>
+                  </div>
+               </article>
+
+               <!-- Project 2: Restaurant Website -->
+               <article class="project-card glass-card" data-category="landing-page">
+                  <div class="project-thumb">
+                     <span class="project-category-tag">Landing Page</span>
+                     <img src="assets/img/work-1.jpg" alt="Zenith Gourmet Bistro & Restaurant">
+                  </div>
+                  <div class="project-details">
+                     <h3 class="project-title">Zenith Bistro & Restaurant</h3>
+                     <p class="project-description">
+                        High-converting culinary website featuring online table reservation forms, interactive visual dining menus, chef showcases, and customer reviews.
+                     </p>
+                     <div class="project-tags">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Responsive UI</span>
+                     </div>
+                     <div class="project-actions">
+                        <a href="#contact" class="button button-primary button-sm">
+                           Live Preview <i class="ri-external-link-line"></i>
+                        </a>
+                        <a href="https://github.com/kc8844906-cloud" target="_blank" rel="noopener noreferrer" class="button button-secondary button-sm">
+                           Source Code <i class="ri-github-line"></i>
+                        </a>
+                     </div>
+                  </div>
+               </article>
+
+               <!-- Project 3: Barbershop Platform -->
+               <article class="project-card glass-card" data-category="landing-page">
+                  <div class="project-thumb">
+                     <span class="project-category-tag">Landing Page</span>
+                     <img src="assets/img/work-3.jpg" alt="Buradynamic Barbershop & Grooming">
+                  </div>
+                  <div class="project-details">
+                     <h3 class="project-title">Barbershop & Salon Studio</h3>
+                     <p class="project-description">
+                        Modern dark-mode grooming studio website with booking appointment calendar, pricing cards, barber portfolios, and localized SEO engine.
+                     </p>
+                     <div class="project-tags">
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">SEO Engine</span>
+                        <span class="tech-tag">Mobile UX</span>
+                     </div>
+                     <div class="project-actions">
+                        <a href="#contact" class="button button-primary button-sm">
+                           Live Preview <i class="ri-external-link-line"></i>
+                        </a>
+                        <a href="https://github.com/kc8844906-cloud" target="_blank" rel="noopener noreferrer" class="button button-secondary button-sm">
+                           Source Code <i class="ri-github-line"></i>
+                        </a>
+                     </div>
+                  </div>
+               </article>
+
+               <!-- Project 4: Luxe Product Design Store -->
+               <article class="project-card glass-card" data-category="ui-ux">
+                  <div class="project-thumb">
+                     <span class="project-category-tag">UI / UX</span>
+                     <img src="assets/img/work-2.jpg" alt="Luxe Minimalist Product Design Showcase">
+                  </div>
+                  <div class="project-details">
+                     <h3 class="project-title">Luxe Product Showcase & Store</h3>
+                     <p class="project-description">
+                        Minimalist digital storefront with smooth variant selectors, interactive 3D-styled image galleries, customer ratings, and responsive shopping cart flow.
+                     </p>
+                     <div class="project-tags">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Tailwind CSS</span>
+                        <span class="tech-tag">Figma UI</span>
+                        <span class="tech-tag">E-Commerce</span>
+                     </div>
+                     <div class="project-actions">
+                        <a href="#contact" class="button button-primary button-sm">
+                           Live Preview <i class="ri-external-link-line"></i>
+                        </a>
+                        <a href="https://github.com/kc8844906-cloud" target="_blank" rel="noopener noreferrer" class="button button-secondary button-sm">
+                           Source Code <i class="ri-github-line"></i>
+                        </a>
+                     </div>
+                  </div>
+               </article>
+
+               <!-- Project 5: Admin Panel & Dashboard -->
+               <article class="project-card glass-card" data-category="web-app">
+                  <div class="project-thumb">
+                     <span class="project-category-tag">Web App</span>
+                     <img src="assets/img/work-5.jpg" alt="Nexus Admin & Analytics Dashboard">
+                  </div>
+                  <div class="project-details">
+                     <h3 class="project-title">Nexus SaaS Analytics Panel</h3>
+                     <p class="project-description">
+                        Interactive SaaS management dashboard with revenue analytics, user activity tables, metrics charts, and clean responsive sidebar navigation.
+                     </p>
+                     <div class="project-tags">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Data Viz</span>
+                        <span class="tech-tag">Tailwind CSS</span>
+                        <span class="tech-tag">REST API</span>
+                     </div>
+                     <div class="project-actions">
+                        <a href="#contact" class="button button-primary button-sm">
+                           Live Preview <i class="ri-external-link-line"></i>
+                        </a>
+                        <a href="https://github.com/kc8844906-cloud" target="_blank" rel="noopener noreferrer" class="button button-secondary button-sm">
+                           Source Code <i class="ri-github-line"></i>
+                        </a>
+                     </div>
+                  </div>
+               </article>
+
+               <!-- Project 6: Modern Portfolio Website -->
+               <article class="project-card glass-card" data-category="landing-page">
+                  <div class="project-thumb">
+                     <span class="project-category-tag">Landing Page</span>
+                     <span class="project-featured-badge">Featured</span>
+                     <img src="preview.png" alt="Virander Kumar Personal Portfolio 2.0">
+                  </div>
+                  <div class="project-details">
+                     <h3 class="project-title">DevPortfolio 2.0</h3>
+                     <p class="project-description">
+                        Ultra-fast personal portfolio with glassmorphism design, interactive project filters, scroll reveals, EmailJS integration, and smooth mobile drawers.
+                     </p>
+                     <div class="project-tags">
+                        <span class="tech-tag">Modern CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">EmailJS</span>
+                        <span class="tech-tag">Vercel</span>
+                     </div>
+                     <div class="project-actions">
+                        <a href="https://my-portfolio-mu-five-38.vercel.app/" target="_blank" rel="noopener noreferrer" class="button button-primary button-sm">
+                           Live Preview <i class="ri-external-link-line"></i>
+                        </a>
+                        <a href="https://github.com/kc8844906-cloud/my-portfolio" target="_blank" rel="noopener noreferrer" class="button button-secondary button-sm">
+                           Source Code <i class="ri-github-line"></i>
+                        </a>
+                     </div>
+                  </div>
+               </article>
+
+            </div>
+         </div>
+      </section>
+
+      <!--==================== SERVICES SECTION ====================-->
+      <section class="services section" id="services">
+         <div class="container">
+            <div class="section__header">
+               <span class="section__tag"><i class="ri-service-line"></i> Professional Services</span>
+               <h2 class="section__title">What I <span class="gradient-text">Offer</span></h2>
+               <p class="section__subtitle">
+                  High-value digital solutions customized to help individuals, startups, and businesses thrive online.
+               </p>
+            </div>
+
+            <div class="services__grid">
+               <!-- Service 1 -->
+               <article class="service-card glass-card">
+                  <div class="service-icon-box">
+                     <i class="ri-code-s-slash-line"></i>
+                  </div>
+                  <h3 class="service-title">Frontend Development</h3>
+                  <p class="service-desc">
+                     Custom frontend web applications engineered with React, modern JavaScript, and Tailwind CSS. Built for optimal speed, security, and scalability.
+                  </p>
+                  <div class="service-features">
+                     <div class="service-feature-item">
+                        <i class="ri-check-line"></i> SPA & Dynamic Component Architecture
+                     </div>
+                     <div class="service-feature-item">
+                        <i class="ri-check-line"></i> State Management & API Integration
+                     </div>
+                     <div class="service-feature-item">
+                        <i class="ri-check-line"></i> Clean, Maintainable Codebase
+                     </div>
+                  </div>
+                  <a href="#contact" class="service-link">
+                     Discuss Project <i class="ri-arrow-right-line"></i>
+                  </a>
+               </article>
+
+               <!-- Service 2 -->
+               <article class="service-card glass-card">
+                  <div class="service-icon-box">
+                     <i class="ri-smartphone-line"></i>
+                  </div>
+                  <h3 class="service-title">Responsive Web Design</h3>
+                  <p class="service-desc">
+                     Mobile-first web layouts that adapt seamlessly to every viewport size — from compact smartphones to 4K desktop screens.
+                  </p>
+                  <div class="service-features">
+                     <div class="service-feature-item">
+                        <i class="ri-check-line"></i> Fluid CSS Grid & Flexbox Layouts
+                     </div>
+                     <div class="service-feature-item">
+                        <i class="ri-check-line"></i> Touch-Friendly Navigation & Menus
+                     </div>
+                     <div class="service-feature-item">
+                        <i class="ri-check-line"></i> Cross-Device & Cross-Browser Testing
+                     </div>
+                  </div>
+                  <a href="#contact" class="service-link">
+                     Discuss Project <i class="ri-arrow-right-line"></i>
+                  </a>
+               </article>
+
+               <!-- Service 3 -->
+               <article class="service-card glass-card">
+                  <div class="service-icon-box">
+                     <i class="ri-palette-line"></i>
+                  </div>
+                  <h3 class="service-title">UI / UX Prototyping</h3>
+                  <p class="service-desc">
+                     Translating Figma, Adobe XD, and Sketch mockups into pixel-perfect, accessible, interactive web interfaces with micro-animations.
+                  </p>
+                  <div class="service-features">
+                     <div class="service-feature-item">
+                        <i class="ri-check-line"></i> Pixel-Perfect Design Implementation
+                     </div>
+                     <div class="service-feature-item">
+                        <i class="ri-check-line"></i> Glassmorphism & Modern Design Systems
+                     </div>
+                     <div class="service-feature-item">
+                        <i class="ri-check-line"></i> Intuitive User Journeys & Flows
+                     </div>
+                  </div>
+                  <a href="#contact" class="service-link">
+                     Discuss Project <i class="ri-arrow-right-line"></i>
+                  </a>
+               </article>
+
+               <!-- Service 4 -->
+               <article class="service-card glass-card">
+                  <div class="service-icon-box">
+                     <i class="ri-speed-up-line"></i>
+                  </div>
+                  <h3 class="service-title">SEO & Web Performance</h3>
+                  <p class="service-desc">
+                     Elevating Google Lighthouse scores, decreasing First Contentful Paint (FCP), and structuring semantic metadata for high search rankings.
+                  </p>
+                  <div class="service-features">
+                     <div class="service-feature-item">
+                        <i class="ri-check-line"></i> Core Web Vitals Optimization
+                     </div>
+                     <div class="service-feature-item">
+                        <i class="ri-check-line"></i> Schema Markup & Meta Tag SEO
+                     </div>
+                     <div class="service-feature-item">
+                        <i class="ri-check-line"></i> Fast Asset Compression & Caching
+                     </div>
+                  </div>
+                  <a href="#contact" class="service-link">
+                     Discuss Project <i class="ri-arrow-right-line"></i>
+                  </a>
+               </article>
+
+               <!-- Service 5 -->
+               <article class="service-card glass-card">
+                  <div class="service-icon-box">
+                     <i class="ri-shopping-bag-3-line"></i>
+                  </div>
+                  <h3 class="service-title">E-Commerce & Landing Pages</h3>
+                  <p class="service-desc">
+                     High-impact marketing landing pages and digital product storefronts built with persuasive layouts to maximize conversions and sales.
+                  </p>
+                  <div class="service-features">
+                     <div class="service-feature-item">
+                        <i class="ri-check-line"></i> High-Conversion Call To Actions
+                     </div>
+                     <div class="service-feature-item">
+                        <i class="ri-check-line"></i> Interactive Product Carousels & Modals
+                     </div>
+                     <div class="service-feature-item">
+                        <i class="ri-check-line"></i> Fast Checkout & Contact Workflows
+                     </div>
+                  </div>
+                  <a href="#contact" class="service-link">
+                     Discuss Project <i class="ri-arrow-right-line"></i>
+                  </a>
+               </article>
+
+               <!-- Service 6 -->
+               <article class="service-card glass-card">
+                  <div class="service-icon-box">
+                     <i class="ri-tools-line"></i>
+                  </div>
+                  <h3 class="service-title">Website Redesign & Refactoring</h3>
+                  <p class="service-desc">
+                     Revamping outdated websites into modern, sleek web experiences while cleaning up bloated code, eliminating bugs, and improving reliability.
+                  </p>
+                  <div class="service-features">
+                     <div class="service-feature-item">
+                        <i class="ri-check-line"></i> Modern UI Transformation
+                     </div>
+                     <div class="service-feature-item">
+                        <i class="ri-check-line"></i> Codebase Optimization & Bug Fixes
+                     </div>
+                     <div class="service-feature-item">
+                        <i class="ri-check-line"></i> Responsive Layout Corrections
+                     </div>
+                  </div>
+                  <a href="#contact" class="service-link">
+                     Discuss Project <i class="ri-arrow-right-line"></i>
+                  </a>
+               </article>
+            </div>
+         </div>
+      </section>
+
+      <!--==================== EXPERIENCE / TIMELINE SECTION ====================-->
+      <section class="experience section" id="experience">
+         <div class="container">
+            <div class="section__header">
+               <span class="section__tag"><i class="ri-history-line"></i> Journey & Growth</span>
+               <h2 class="section__title">Work <span class="gradient-text">Experience</span></h2>
+               <p class="section__subtitle">
+                  My professional roadmap and continuous journey in the web development ecosystem.
+               </p>
+            </div>
+
+            <div class="timeline">
+               <!-- Milestone 1 -->
+               <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-content glass-card">
+                     <span class="timeline-period">2024 — PRESENT</span>
+                     <h3 class="timeline-role">Freelance Web Developer</h3>
+                     <h4 class="timeline-org">Independent Contractor • Remote</h4>
+                     <p class="timeline-desc">
+                        Engineering custom client websites, responsive landing pages, and web applications. Utilizing modern React, Tailwind CSS, and vanilla JavaScript to provide pixel-perfect implementations, fast turnaround times, and superior user engagement.
+                     </p>
+                  </div>
+               </div>
+
+               <!-- Milestone 2 -->
+               <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-content glass-card">
+                     <span class="timeline-period">2023 — 2024</span>
+                     <h3 class="timeline-role">Frontend Projects & Web Engineering</h3>
+                     <h4 class="timeline-org">Web Architecture & Interactive UIs</h4>
+                     <p class="timeline-desc">
+                        Deepened mastery across the modern React framework, component lifecycle, asynchronous JavaScript, and REST APIs. Built multiple full-scale commercial clones and specialized platforms including cafe ordering systems, restaurant reservations, and analytics dashboards.
+                     </p>
+                  </div>
+               </div>
+
+               <!-- Milestone 3 -->
+               <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-content glass-card">
+                     <span class="timeline-period">2022 — 2023</span>
+                     <h3 class="timeline-role">Web Standards & Foundations</h3>
+                     <h4 class="timeline-org">Computer Science & Development Core</h4>
+                     <p class="timeline-desc">
+                        Established robust fundamentals in semantic HTML5, modern CSS3 layouts (Flexbox, Grid), JavaScript algorithms, Git version control, and responsive web design best practices.
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <!--==================== TESTIMONIALS SECTION ====================-->
+      <section class="testimonials section" id="testimonials">
+         <div class="container">
+            <div class="section__header">
+               <span class="section__tag"><i class="ri-chat-quote-line"></i> Client Feedback</span>
+               <h2 class="section__title">What Clients <span class="gradient-text">Say</span></h2>
+               <p class="section__subtitle">
+                  Kind words and endorsements from clients and collaborators I've had the pleasure to work with.
+               </p>
+            </div>
+
+            <div class="testimonials__grid">
+               <!-- Review 1 -->
+               <div class="testimonial-card glass-card">
+                  <div>
+                     <div class="testimonial-stars">
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                     </div>
+                     <p class="testimonial-quote">
+                        "Virander completely revolutionized our business website. The design is breathtaking, loads in the blink of an eye, and our mobile inquiries doubled within two weeks!"
+                     </p>
+                  </div>
+                  <div class="testimonial-author">
+                     <div class="author-avatar">AM</div>
+                     <div>
+                        <h4 class="author-name">Alex Miller</h4>
+                        <span class="author-role">Startup Founder & CEO</span>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- Review 2 -->
+               <div class="testimonial-card glass-card">
+                  <div>
+                     <div class="testimonial-stars">
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                     </div>
+                     <p class="testimonial-quote">
+                        "Exceptional developer with an acute eye for detail. His code is modular, clean, and delivered well before the deadline. Will definitely hire him again."
+                     </p>
+                  </div>
+                  <div class="testimonial-author">
+                     <div class="author-avatar">PS</div>
+                     <div>
+                        <h4 class="author-name">Priya Sharma</h4>
+                        <span class="author-role">Digital Marketing Director</span>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- Review 3 -->
+               <div class="testimonial-card glass-card">
+                  <div>
+                     <div class="testimonial-stars">
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                     </div>
+                     <p class="testimonial-quote">
+                        "Working with Virander was smooth from start to finish. He understood our exact requirements and provided proactive creative suggestions that elevated the final result."
+                     </p>
+                  </div>
+                  <div class="testimonial-author">
+                     <div class="author-avatar">RK</div>
+                     <div>
+                        <h4 class="author-name">Rahul Kapoor</h4>
+                        <span class="author-role">Product Manager</span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <!--==================== CTA BANNER SECTION ====================-->
+      <section class="section">
+         <div class="container">
+            <div class="cta-banner">
+               <h2>Have a project in mind?</h2>
+               <p>
+                  Let's collaborate to build an impressive, high-speed, and modern web presence that helps you achieve your business goals.
+               </p>
+               <div class="cta-buttons">
+                  <a href="#contact" class="button button-primary">
+                     Start a Project <i class="ri-rocket-2-line"></i>
+                  </a>
+                  <a href="https://wa.me/918571840837" target="_blank" rel="noopener noreferrer" class="button button-secondary">
+                     Chat on WhatsApp <i class="ri-whatsapp-line"></i>
+                  </a>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <!--==================== CONTACT SECTION ====================-->
+      <section class="contact section" id="contact">
+         <div class="container">
+            <div class="section__header">
+               <span class="section__tag"><i class="ri-mail-line"></i> Get In Touch</span>
+               <h2 class="section__title">Contact <span class="gradient-text">Me</span></h2>
+               <p class="section__subtitle">
+                  Have a question, project proposal, or just want to say hi? My inbox is always open.
+               </p>
+            </div>
+
+            <div class="contact__container grid">
+               <!-- Contact Info Column -->
+               <div class="contact__info-card glass-card">
+                  <div class="contact__info-header">
+                     <h3>Let's Talk Directly</h3>
+                     <p>Reach out through your preferred communication channel below:</p>
+                  </div>
+
+                  <div class="contact__methods">
+                     <!-- Email -->
+                     <div class="contact__method-item">
+                        <div class="method-icon-title">
+                           <div class="method-icon"><i class="ri-mail-send-line"></i></div>
+                           <div class="method-meta">
+                              <h4>Email Address</h4>
+                              <p>KC8844906@gmail.com</p>
+                           </div>
+                        </div>
+                        <button class="method-action-btn" onclick="copyToClipboard('KC8844906@gmail.com', 'Email copied to clipboard!')">
+                           Copy
+                        </button>
+                     </div>
+
+                     <!-- Phone -->
+                     <div class="contact__method-item">
+                        <div class="method-icon-title">
+                           <div class="method-icon"><i class="ri-phone-line"></i></div>
+                           <div class="method-meta">
+                              <h4>Mobile Phone</h4>
+                              <p>+91 8571840837</p>
+                           </div>
+                        </div>
+                        <a href="tel:8571840837" class="method-action-btn">
+                           Call
+                        </a>
+                     </div>
+
+                     <!-- WhatsApp -->
+                     <div class="contact__method-item">
+                        <div class="method-icon-title">
+                           <div class="method-icon"><i class="ri-whatsapp-line"></i></div>
+                           <div class="method-meta">
+                              <h4>WhatsApp</h4>
+                              <p>+91 8571840837</p>
+                           </div>
+                        </div>
+                        <a href="https://wa.me/918571840837" target="_blank" rel="noopener noreferrer" class="method-action-btn">
+                           Chat
+                        </a>
+                     </div>
+
+                     <!-- Twitter / X -->
+                     <div class="contact__method-item">
+                        <div class="method-icon-title">
+                           <div class="method-icon"><i class="ri-twitter-x-fill"></i></div>
+                           <div class="method-meta">
+                              <h4>Twitter / X</h4>
+                              <p>@buradynamic</p>
+                           </div>
+                        </div>
+                        <a href="https://x.com/buradynamic?s=11" target="_blank" rel="noopener noreferrer" class="method-action-btn">
+                           Follow
+                        </a>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- Contact Form Column -->
+               <div class="contact__form-card glass-card">
+                  <h3>Send a Message</h3>
+                  <p>Fill out the form below and I'll get back to you within 24 hours.</p>
+
+                  <form class="contact__form" id="contact-form">
+                     <div class="form-group-row">
+                        <div class="form-group">
+                           <label for="user_name" class="form-label">Your Name</label>
+                           <input type="text" id="user_name" name="user_name" placeholder="John Doe" required class="form-input">
+                        </div>
+                        <div class="form-group">
+                           <label for="user_email" class="form-label">Your Email</label>
+                           <input type="email" id="user_email" name="user_email" placeholder="john@example.com" required class="form-input">
+                        </div>
+                     </div>
+
+                     <div class="form-group">
+                        <label for="user_subject" class="form-label">Subject</label>
+                        <input type="text" id="user_subject" name="user_subject" placeholder="Project Inquiry / Job Opportunity" required class="form-input">
+                     </div>
+
+                     <div class="form-group">
+                        <label for="user_message" class="form-label">Your Message</label>
+                        <textarea id="user_message" name="user_message" placeholder="Tell me about your project, timeline, and goals..." required class="form-input form-textarea"></textarea>
+                     </div>
+
+                     <button type="submit" class="button button-primary" id="form-submit-btn">
+                        <span>Send Message</span> <i class="ri-send-plane-fill"></i>
+                     </button>
+
+                     <div class="form-status" id="contact-message"></div>
+                  </form>
+               </div>
+            </div>
          </div>
       </section>
    </main>
 
    <!--==================== FOOTER ====================-->
    <footer class="footer">
-      <div class="footer__container container grid">
-         <ul class="footer__links">
-            <li>
-               <a href="#home" class="footer__link">Home</a>
-            </li>
-            <li>
-               <a href="#work" class="footer__link">Work</a>
-            </li>
-            <li>
-               <a href="#skills" class="footer__link">Skills</a>
-            </li>
-            <li>
-               <a href="#services" class="footer__link">Services</a>
-            </li>
-            <li>
-               <a href="#contact" class="footer__link">Contact</a>
-            </li>
-         </ul>
+      <div class="container">
+         <div class="footer__top">
+            <div class="footer__brand">
+               <a href="#home" class="nav__logo">
+                  <span class="nav__logo-icon"><i class="ri-flashlight-fill"></i></span>
+                  Virander<span class="nav__logo-dot">.dev</span>
+               </a>
+               <p class="footer__desc">
+                  Full-Stack & Frontend Web Developer specializing in fast, responsive, and aesthetically stunning modern web applications.
+               </p>
+            </div>
 
-         <div class="footer__contact">
-            <span><i class="ri-user-line"></i> Virander Kumar</span>
-            <span><i class="ri-mail-line"></i> <a href="mailto:KC8844906@gmail.com">KC8844906@gmail.com</a></span>
-            <span><i class="ri-phone-line"></i> <a href="tel:8571840837">+91 8571840837</a></span>
-            <span><i class="ri-twitter-x-fill"></i> <a href="https://x.com/buradynamic?s=11" target="_blank" rel="noopener noreferrer">@buradynamic</a></span>
+            <div>
+               <h3 class="footer__col-title">Navigation</h3>
+               <ul class="footer__links">
+                  <li><a href="#home" class="footer__link">Home</a></li>
+                  <li><a href="#about" class="footer__link">About</a></li>
+                  <li><a href="#skills" class="footer__link">Skills</a></li>
+                  <li><a href="#work" class="footer__link">Projects</a></li>
+                  <li><a href="#services" class="footer__link">Services</a></li>
+                  <li><a href="#contact" class="footer__link">Contact</a></li>
+               </ul>
+            </div>
+
+            <div>
+               <h3 class="footer__col-title">Connect</h3>
+               <ul class="footer__links">
+                  <li><a href="mailto:KC8844906@gmail.com" class="footer__link">KC8844906@gmail.com</a></li>
+                  <li><a href="tel:8571840837" class="footer__link">+91 8571840837</a></li>
+                  <li><a href="https://x.com/buradynamic?s=11" target="_blank" rel="noopener noreferrer" class="footer__link">Twitter @buradynamic</a></li>
+                  <li><a href="https://wa.me/918571840837" target="_blank" rel="noopener noreferrer" class="footer__link">WhatsApp Chat</a></li>
+               </ul>
+            </div>
          </div>
 
-         <span class="footer__copy">
-            &#169; All Rights Reserved By Virander Kumar
-         </span>
+         <div class="footer__bottom">
+            <p class="footer__copy">
+               &#169; 2026 Virander Kumar. All Rights Reserved. Built with clean code & passion.
+            </p>
+
+            <div class="footer__socials">
+               <a href="https://github.com/kc8844906-cloud" target="_blank" rel="noopener noreferrer" class="footer__social-btn" title="GitHub">
+                  <i class="ri-github-fill"></i>
+               </a>
+               <a href="https://x.com/buradynamic?s=11" target="_blank" rel="noopener noreferrer" class="footer__social-btn" title="Twitter / X">
+                  <i class="ri-twitter-x-fill"></i>
+               </a>
+               <a href="https://wa.me/918571840837" target="_blank" rel="noopener noreferrer" class="footer__social-btn" title="WhatsApp">
+                  <i class="ri-whatsapp-line"></i>
+               </a>
+               <a href="mailto:KC8844906@gmail.com" class="footer__social-btn" title="Email">
+                  <i class="ri-mail-line"></i>
+               </a>
+            </div>
+         </div>
       </div>
    </footer>
 
-   <!--========== SCROLL UP ==========-->
-   <a href="#" class="scrollup" id="scroll-up">
+   <!--========== SCROLL UP BUTTON ==========-->
+   <a href="#" class="scrollup" id="scroll-up" aria-label="Scroll to top">
       <i class="ri-arrow-up-line"></i>
    </a>
+
+   <!--========== FLOATING WHATSAPP BUTTON ==========-->
+   <a href="https://wa.me/918571840837" target="_blank" rel="noopener noreferrer" class="floating-whatsapp" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
+      <i class="ri-whatsapp-fill"></i>
+   </a>
+
+   <!--========== TOAST NOTIFICATION CONTAINER ==========-->
+   <div class="toast" id="toast-notification">
+      <i class="ri-checkbox-circle-fill"></i>
+      <span id="toast-text">Action completed successfully!</span>
+   </div>
 
    <!--=============== SCROLLREVEAL ===============-->
    <script src="assets/js/scrollreveal.min.js"></script>
