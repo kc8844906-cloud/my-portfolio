@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
    <meta charset="UTF-8">
@@ -39,7 +39,7 @@
    <!-- Top Scroll Progress -->
    <div class="scroll-progress" id="scroll-progress"></div>
 
-   <!--==================== HEADER ====================-->
+      <!--==================== HEADER ====================-->
    <header class="header" id="header">
       <nav class="nav container">
          <a href="#home" class="nav__logo">
@@ -47,50 +47,86 @@
             Virander<span class="nav__logo-dot">.dev</span>
          </a>
 
+         <!-- Side Drawer Navigation Menu -->
          <div class="nav__menu" id="nav-menu">
+            <!-- Mobile Drawer Top Header -->
+            <div class="nav__drawer-header">
+               <a href="#home" class="nav__logo">
+                  <span class="nav__logo-icon"><i class="ri-flashlight-fill"></i></span>
+                  Virander<span class="nav__logo-dot">.dev</span>
+               </a>
+               <button class="nav__close" id="nav-close" aria-label="Close navigation menu">
+                  <i class="ri-close-line"></i>
+               </button>
+            </div>
+
+            <!-- Navigation Links List -->
             <ul class="nav__list">
                <li class="nav__item">
-                  <a href="#home" class="nav__link active-link">Home</a>
+                  <a href="#home" class="nav__link active-link">
+                     <i class="ri-home-5-line nav__link-icon"></i> Home
+                  </a>
                </li>
                <li class="nav__item">
-                  <a href="#about" class="nav__link">About</a>
+                  <a href="#about" class="nav__link">
+                     <i class="ri-user-smile-line nav__link-icon"></i> About
+                  </a>
                </li>
                <li class="nav__item">
-                  <a href="#trust" class="nav__link">Why Me</a>
+                  <a href="#trust" class="nav__link">
+                     <i class="ri-shield-star-line nav__link-icon"></i> Why Me
+                  </a>
                </li>
                <li class="nav__item">
-                  <a href="#services" class="nav__link">Services</a>
+                  <a href="#services" class="nav__link">
+                     <i class="ri-service-line nav__link-icon"></i> Services
+                  </a>
                </li>
                <li class="nav__item">
-                  <a href="#work" class="nav__link">Projects</a>
+                  <a href="#work" class="nav__link">
+                     <i class="ri-folder-open-line nav__link-icon"></i> Projects
+                  </a>
                </li>
                <li class="nav__item">
-                  <a href="#process" class="nav__link">Process</a>
+                  <a href="#process" class="nav__link">
+                     <i class="ri-flow-chart nav__link-icon"></i> Process
+                  </a>
                </li>
                <li class="nav__item">
-                  <a href="#testimonials" class="nav__link">Reviews</a>
+                  <a href="#testimonials" class="nav__link">
+                     <i class="ri-chat-quote-line nav__link-icon"></i> Reviews
+                  </a>
                </li>
                <li class="nav__item">
-                  <a href="#pricing" class="nav__link">Engagement</a>
+                  <a href="#pricing" class="nav__link">
+                     <i class="ri-briefcase-4-line nav__link-icon"></i> Engagement
+                  </a>
                </li>
                <li class="nav__item">
-                  <a href="#faq" class="nav__link">FAQ</a>
+                  <a href="#faq" class="nav__link">
+                     <i class="ri-questionnaire-line nav__link-icon"></i> FAQ
+                  </a>
                </li>
                <li class="nav__item">
-                  <a href="#contact" class="nav__link">Contact</a>
+                  <a href="#contact" class="nav__link">
+                     <i class="ri-mail-line nav__link-icon"></i> Contact
+                  </a>
                </li>
             </ul>
 
-            <div class="nav__menu-cta">
-               <a href="#contact" class="button button-primary button-sm">
-                  Let's Talk <i class="ri-chat-1-line"></i>
+            <!-- Mobile Drawer Bottom CTA -->
+            <div class="nav__drawer-footer">
+               <div class="drawer-status">
+                  <span class="live-status-dot"></span>
+                  <span>Available for Global Work</span>
+               </div>
+               <a href="#contact" class="button button-primary button-sm" style="width: 100%; justify-content: center;">
+                  Let's Talk <i class="ri-arrow-right-up-line"></i>
+               </a>
+               <a href="https://wa.me/918571840837" target="_blank" rel="noopener noreferrer" class="button button-whatsapp button-sm" style="width: 100%; justify-content: center; margin-top: 0.5rem;">
+                  WhatsApp Chat <i class="ri-whatsapp-line"></i>
                </a>
             </div>
-
-            <!-- Close button -->
-            <button class="nav__close" id="nav-close" aria-label="Close navigation menu">
-               <i class="ri-close-line"></i>
-            </button>
          </div>
 
          <!-- Header Actions -->
@@ -105,8 +141,11 @@
             </button>
          </div>
       </nav>
+
+      <!-- Mobile Backdrop Overlay -->
+      <div class="nav__overlay" id="nav-overlay"></div>
    </header>
-   
+
    <!--==================== MAIN ====================-->
    <main class="main">
 

@@ -5,34 +5,60 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-   /*=============== MOBILE NAVIGATION ===============*/
+      /*=============== MOBILE NAVIGATION SIDE DRAWER ===============*/
    const navMenu = document.getElementById('nav-menu'),
          navToggle = document.getElementById('nav-toggle'),
          navClose = document.getElementById('nav-close'),
+         navOverlay = document.getElementById('nav-overlay'),
          navLinks = document.querySelectorAll('.nav__link');
 
-   // Show menu
-   if (navToggle && navMenu) {
-      navToggle.addEventListener('click', (e) => {
-         e.stopPropagation();
-         navMenu.classList.add('show-menu');
-         document.body.style.overflow = 'hidden';
-      });
-   }
+   // Explicitly ensure drawer is closed on load
+   if (navMenu) navMenu.classList.remove('show-menu');
+   if (navOverlay) navOverlay.classList.remove('show-overlay');
+   document.body.style.overflow = '';
 
-   // Hide menu
+   const openMenu = () => {
+      if (navMenu) {
+         navMenu.classList.add('show-menu');
+         if (navOverlay) navOverlay.classList.add('show-overlay');
+         document.body.style.overflow = 'hidden';
+      }
+   };
+
    const closeMenu = () => {
       if (navMenu) {
          navMenu.classList.remove('show-menu');
+         if (navOverlay) navOverlay.classList.remove('show-overlay');
          document.body.style.overflow = '';
       }
    };
 
-   if (navClose) {
-      navClose.addEventListener('click', closeMenu);
+   // Toggle button click
+   if (navToggle) {
+      navToggle.addEventListener('click', (e) => {
+         e.stopPropagation();
+         if (navMenu && navMenu.classList.contains('show-menu')) {
+            closeMenu();
+         } else {
+            openMenu();
+         }
+      });
    }
 
-   // Close on link click
+   // Close button click
+   if (navClose) {
+      navClose.addEventListener('click', (e) => {
+         e.stopPropagation();
+         closeMenu();
+      });
+   }
+
+   // Backdrop overlay click
+   if (navOverlay) {
+      navOverlay.addEventListener('click', closeMenu);
+   }
+
+   // Close on any link click
    navLinks.forEach(link => {
       link.addEventListener('click', closeMenu);
    });
@@ -49,6 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
          closeMenu();
       }
    });
+
 
    /*=============== SCROLL PROGRESS & BLUR HEADER ===============*/
    const scrollProgressBar = document.getElementById('scroll-progress');
