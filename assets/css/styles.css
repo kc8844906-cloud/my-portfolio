@@ -1,4 +1,4 @@
-﻿/*=============== GOOGLE FONTS ===============*/
+/*=============== GOOGLE FONTS ===============*/
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap");
 
 /*=============== VARIABLES CSS ===============*/
@@ -846,13 +846,15 @@ button {
     display: flex !important;
     justify-content: center;
     align-items: center;
-    margin: 1.5rem auto 1.75rem;
-    width: 100%;
+    margin: 1.6rem auto 1.85rem !important;
+    position: relative !important;
+    width: max-content !important;
+    max-width: 100% !important;
   }
 
-  .hero__image-wrapper {
-    width: 250px !important;
-    height: 310px !important;
+  .hero__visual-mobile .hero__image-wrapper {
+    width: min(250px, 72vw) !important;
+    height: 300px !important;
   }
 
   .floating-badge {

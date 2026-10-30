@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Virander Kumar - Modern Developer Portfolio 2026
  * Core JavaScript Logic
  */
@@ -303,7 +303,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Hero Elements
       sr.reveal('.hero__data', { delay: 100 });
-      sr.reveal('.hero__visual', { origin: 'right', delay: 250 });
+      sr.reveal('.hero__visual-desktop', { origin: 'right', delay: 250 });
       sr.reveal('.trust-strip', { origin: 'bottom', delay: 200 });
 
       // Section Titles & Subtitles
