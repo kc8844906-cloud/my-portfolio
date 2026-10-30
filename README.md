@@ -1,59 +1,44 @@
-# Responsive Portfolio Website - Tailor Lyborm
+# Virander Kumar — Full-Stack & Frontend Web Developer Portfolio
 
-A responsive, modern personal portfolio website built with HTML, CSS, and JavaScript. Originally designed by [Bedimcode](https://www.youtube.com/@Bedimcode) and completed for seamless local use.
+High-performance, ultra-modern developer portfolio engineered for international clients, startups, and ambitious businesses. Built with clean semantic HTML5, modern CSS3 (glassmorphism, CSS grid, micro-interactions), and responsive vanilla JavaScript.
 
-![preview img](preview.png)
+Live Production URL: [https://my-portfolio-mu-five-38.vercel.app/](https://my-portfolio-mu-five-38.vercel.app/)
+
+![Portfolio Preview](preview.png)
+
+---
+
+## 🌟 Key Highlights & Capabilities
+
+- **Global Client Credibility**: Tailored specifically for international founders and companies with timezone alignment (US, UK/EU, Middle East), 100% on-time delivery track record, and 30-day post-launch warranty.
+- **Sub-Second Performance**: Optimized for 95+ Google Lighthouse scores, smooth 60fps animations, Core Web Vitals compliance, and responsive asset loading.
+- **Production Case Studies**: Real commercial projects including **Allied Luxury Car Rental & Fleet Engine**, **CAF Specialty Coffee Platform**, **Al Ghad HVAC Bahrain**, **Zenith Bistro**, and **Nexus SaaS Analytics Console**.
+- **Transparent 5-Step Process**: Discovery & Strategy, UI/UX Wireframing, Agile Sprints (48h staging links), QA & Benchmarks, and Launch Handover.
+- **Engagement & Hiring Models**: Transparent options for Fixed-Price Projects, Monthly Retainers, and 48h Speed Sprints.
+- **Client Endorsements**: Verified international client reviews with country tags and measurable business outcomes.
+- **Interactive FAQ Accordion**: Addresses international coordination, payment terms (USD, EUR, GBP, AED via Stripe/Wise/Wire), code ownership, and NDAs.
+- **Live Timezone Clock**: Dynamic real-time clock widget displaying current IST status (GMT+5:30) and availability.
+- **Direct Conversion Channels**: Integrated WhatsApp chat, one-click email copy, direct phone calling, and project inquiry form.
+
+---
 
 ## 🚀 How to Run Locally
 
-You have multiple easy options to run this project on Windows:
+### Option 1: Direct File Launch
+Double-click `index.html` or open it in any modern browser.
 
-### Option 1: Direct File Launch (Quickest)
-Simply double-click `start.bat` or open `index.html` directly in any web browser (Google Chrome, Microsoft Edge, Firefox, Brave).
-
-### Option 2: Built-in Local HTTP Server (Recommended)
-1. Double-click `start-server.bat` (or run `.\start-server.ps1` in PowerShell).
-2. It automatically hosts the website at `http://localhost:8080/` and opens your browser.
-3. Press `Ctrl+C` in the terminal window when you wish to stop the server.
-
-### Option 3: VS Code Live Server
-If you use Visual Studio Code, install the **Live Server** extension, right-click `index.html`, and click **Open with Live Server**.
+### Option 2: Local HTTP Server
+Double-click `start-server.bat` (or run `.\start-server.ps1` in PowerShell). It serves the site on `http://localhost:8080/`.
 
 ---
 
-## ✨ Features Included
+## 🛠️ Tech Stack
 
-- **Mobile First Responsive Design**: Perfectly styled for mobile devices, tablets, and wide desktop screens.
-- **Modern Dark Theme**: Deep slate/navy aesthetic with accent highlights.
-- **Glassmorphism Header**: Header blurs softly on scroll using `backdrop-filter`.
-- **Smooth Navigation & Scrollspy**: Active links update automatically as you scroll down the page.
-- **Interactive Portfolio Cards**: Showcase for recent works with hover animations.
-- **My Info Section**: About bio, downloadable CV (`Tailor-Cv.pdf`), career timeline, and skills grid with vector badges.
-- **Services Grid**: Highlighted key service offerings.
-- **Working Contact Form**: Built with input validation and local simulated feedback (`Message sent successfully ✅`), ready for your EmailJS credentials.
-- **Scroll to Top**: Floating return-to-top button.
-- **ScrollReveal Animations**: Staggered scroll animations.
+- **Frontend**: Semantic HTML5, Modern CSS3 (Variables, Grid, Flexbox, Glassmorphism, Animations), ES6+ JavaScript
+- **Icons & Typography**: Remix Icon (v4.2), Google Fonts (Outfit, Plus Jakarta Sans, JetBrains Mono)
+- **Libraries**: ScrollReveal.js, EmailJS
+- **Hosting & Deploy**: Vercel CI/CD
 
 ---
 
-## 🎨 Customization
-
-### Changing the Primary Color
-In [assets/css/styles.css](assets/css/styles.css), change the `--hue` variable at the top of `:root`:
-```css
-:root {
-  /*
-    Default: 230 (Royal Blue)
-    Purple: 245 | Blue: 210 | Pink: 340 | Green: 162 | Orange: 14
-  */
-  --hue: 230;
-}
-```
-
-### Configuring EmailJS for Real Emails
-In [assets/js/main.js](assets/js/main.js), replace the placeholder keys in `sendEmail`:
-```javascript
-const serviceID = 'YOUR_SERVICE_ID'
-const templateID = 'YOUR_TEMPLATE_ID'
-const publicKey = 'YOUR_PUBLIC_KEY'
-```
+© 2026 Virander Kumar. All Rights Reserved.

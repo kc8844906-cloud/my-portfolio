@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Virander Kumar - Modern Developer Portfolio 2026
  * Core JavaScript Logic
  */
@@ -140,6 +140,59 @@ document.addEventListener('DOMContentLoaded', () => {
       });
    });
 
+   /*=============== FAQ ACCORDION SYSTEM ===============*/
+   const faqItems = document.querySelectorAll('.faq-item');
+   faqItems.forEach(item => {
+      const questionBtn = item.querySelector('.faq-question');
+      const answer = item.querySelector('.faq-answer');
+
+      if (questionBtn && answer) {
+         questionBtn.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+
+            // Close other items for neat accordion feel
+            faqItems.forEach(otherItem => {
+               if (otherItem !== item) {
+                  otherItem.classList.remove('active');
+                  const otherAnswer = otherItem.querySelector('.faq-answer');
+                  if (otherAnswer) otherAnswer.style.maxHeight = null;
+               }
+            });
+
+            // Toggle active state
+            if (isActive) {
+               item.classList.remove('active');
+               answer.style.maxHeight = null;
+            } else {
+               item.classList.add('active');
+               answer.style.maxHeight = answer.scrollHeight + 'px';
+            }
+         });
+      }
+   });
+
+   /*=============== LIVE TIMEZONE CLOCK ===============*/
+   const liveClockEl = document.getElementById('live-clock-time');
+   const updateClock = () => {
+      if (!liveClockEl) return;
+      try {
+         const now = new Date();
+         const options = {
+            timeZone: 'Asia/Kolkata',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: true
+         };
+         const timeString = new Intl.DateTimeFormat('en-US', options).format(now);
+         liveClockEl.textContent = `${timeString} IST (GMT+5:30)`;
+      } catch (e) {
+         liveClockEl.textContent = 'Active Now (GMT+5:30)';
+      }
+   };
+   updateClock();
+   setInterval(updateClock, 1000);
+
    /*=============== CONTACT FORM & SUBMISSION ===============*/
    const contactForm = document.getElementById('contact-form');
    const contactMessage = document.getElementById('contact-message');
@@ -157,7 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
          // Button loading state
          const originalBtnContent = submitBtn.innerHTML;
          submitBtn.disabled = true;
-         submitBtn.innerHTML = `<span>Sending...</span> <i class="ri-loader-4-line" style="animation: spin 1s linear infinite;"></i>`;
+         submitBtn.innerHTML = `<span>Sending Inquiry...</span> <i class="ri-loader-4-line" style="animation: spin 1s linear infinite;"></i>`;
 
          // Injected CSS for spin animation if needed
          if (!document.getElementById('spin-keyframes')) {
@@ -176,9 +229,9 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.innerHTML = originalBtnContent;
 
             contactMessage.className = 'form-status status-success';
-            contactMessage.textContent = 'Thank you! Your message has been sent successfully. ✅';
+            contactMessage.textContent = 'Thank you! Your message has been sent successfully. I will get back to you within 24 hours.';
 
-            showToast('Message sent! I will reply shortly.');
+            showToast('Inquiry sent! I will reply shortly.');
             contactForm.reset();
 
             setTimeout(() => {
@@ -192,7 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.innerHTML = originalBtnContent;
 
             contactMessage.className = 'form-status status-error';
-            contactMessage.textContent = 'Oops! Message could not be sent. Please email directly to KC8844906@gmail.com ❌';
+            contactMessage.textContent = 'Oops! Message could not be sent. Please email directly to KC8844906@gmail.com';
 
             setTimeout(() => {
                contactMessage.textContent = '';
@@ -214,46 +267,59 @@ document.addEventListener('DOMContentLoaded', () => {
    if (typeof ScrollReveal !== 'undefined') {
       const sr = ScrollReveal({
          origin: 'top',
-         distance: '45px',
-         duration: 1800,
-         delay: 200,
+         distance: '40px',
+         duration: 1600,
+         delay: 150,
          easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
          reset: false
       });
 
       // Hero Elements
-      sr.reveal('.hero__data', { delay: 150 });
-      sr.reveal('.hero__visual', { origin: 'right', delay: 350 });
+      sr.reveal('.hero__data', { delay: 100 });
+      sr.reveal('.hero__visual', { origin: 'right', delay: 250 });
+      sr.reveal('.trust-strip', { origin: 'bottom', delay: 200 });
 
       // Section Titles & Subtitles
       sr.reveal('.section__header', { origin: 'top' });
 
       // About
-      sr.reveal('.about__intro', { origin: 'left', delay: 200 });
-      sr.reveal('.about__bento', { origin: 'right', delay: 300 });
+      sr.reveal('.about__intro', { origin: 'left', delay: 150 });
+      sr.reveal('.about__bento', { origin: 'right', delay: 250 });
+
+      // Why Choose Me
+      sr.reveal('.why-card', { interval: 100, origin: 'bottom' });
 
       // Skills
-      sr.reveal('.skills__category', { interval: 150, origin: 'bottom' });
+      sr.reveal('.skills__category', { interval: 120, origin: 'bottom' });
 
       // Projects
-      sr.reveal('.work__filters', { origin: 'top', delay: 100 });
-      sr.reveal('.project-card', { interval: 120, origin: 'bottom' });
+      sr.reveal('.work__filters', { origin: 'top', delay: 80 });
+      sr.reveal('.project-card', { interval: 100, origin: 'bottom' });
+
+      // Process
+      sr.reveal('.process-card', { interval: 100, origin: 'bottom' });
 
       // Services
-      sr.reveal('.service-card', { interval: 120, origin: 'bottom' });
+      sr.reveal('.service-card', { interval: 100, origin: 'bottom' });
 
       // Experience Timeline
-      sr.reveal('.timeline-item', { interval: 150, origin: 'left' });
+      sr.reveal('.timeline-item', { interval: 120, origin: 'left' });
 
       // Testimonials
-      sr.reveal('.testimonial-card', { interval: 120, origin: 'bottom' });
+      sr.reveal('.testimonial-card', { interval: 100, origin: 'bottom' });
+
+      // Pricing / Engagement Models
+      sr.reveal('.pricing-card', { interval: 120, origin: 'bottom' });
+
+      // FAQ
+      sr.reveal('.faq-item', { interval: 80, origin: 'bottom' });
 
       // CTA Banner
-      sr.reveal('.cta-banner', { origin: 'bottom', scale: 0.95 });
+      sr.reveal('.cta-banner', { origin: 'bottom', scale: 0.96 });
 
       // Contact
-      sr.reveal('.contact__info-card', { origin: 'left', delay: 200 });
-      sr.reveal('.contact__form-card', { origin: 'right', delay: 300 });
+      sr.reveal('.contact__info-card', { origin: 'left', delay: 150 });
+      sr.reveal('.contact__form-card', { origin: 'right', delay: 250 });
    }
 
    // Initialize on load
