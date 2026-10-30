@@ -1,4 +1,4 @@
-/*=============== GOOGLE FONTS ===============*/
+﻿/*=============== GOOGLE FONTS ===============*/
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap");
 
 /*=============== VARIABLES CSS ===============*/
@@ -828,6 +828,62 @@ button {
   justify-content: center;
   align-items: center;
 }
+
+.hero__visual-mobile {
+  display: none;
+}
+
+.hero__visual-desktop {
+  display: flex;
+}
+
+@media screen and (max-width: 1023px) {
+  .hero__visual-desktop {
+    display: none !important;
+  }
+
+  .hero__visual-mobile {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5rem auto 1.75rem;
+    width: 100%;
+  }
+
+  .hero__image-wrapper {
+    width: 250px !important;
+    height: 310px !important;
+  }
+
+  .floating-badge {
+    padding: 0.5rem 0.85rem !important;
+    font-size: var(--smaller-font-size) !important;
+  }
+
+  .badge-top {
+    top: -8px !important;
+    right: -8px !important;
+  }
+
+  .badge-bottom {
+    bottom: -8px !important;
+    left: -8px !important;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .hero__visual-mobile {
+    display: none !important;
+  }
+
+  .hero__visual-desktop {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+
 
 .hero__image-wrapper {
   position: relative;

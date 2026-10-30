@@ -149,7 +149,7 @@
    <!--==================== MAIN ====================-->
    <main class="main">
 
-      <!--==================== HERO SECTION ====================-->
+            <!--==================== HERO SECTION ====================-->
       <section class="hero section" id="home">
          <div class="hero__container container grid">
             <div class="hero__data">
@@ -166,6 +166,26 @@
                <h2 class="hero__subtitle">
                   Full-Stack & Frontend Web Developer &bull; React &bull; TypeScript &bull; Tailwind CSS
                </h2>
+
+               <!-- Profile Visual (Mobile: Centered right in the middle below Subtitle) -->
+               <div class="hero__visual hero__visual-mobile">
+                  <div class="hero__image-wrapper">
+                     <div class="hero__image-inner">
+                        <img src="assets/img/virander.jpg" alt="Virander Kumar - Full-Stack & Frontend Web Developer" class="hero__img" fetchpriority="high">
+                     </div>
+                  </div>
+
+                  <!-- Floating micro badges -->
+                  <div class="floating-badge badge-top">
+                     <i class="ri-flashlight-line"></i>
+                     <span>Sub-Second Load Speed</span>
+                  </div>
+
+                  <div class="floating-badge badge-bottom">
+                     <i class="ri-shield-check-line"></i>
+                     <span>30-Day Free Warranty</span>
+                  </div>
+               </div>
 
                <p class="hero__description">
                   I engineer lightning-fast, visually stunning, and conversion-focused web applications tailored for global startups, agencies, and ambitious brands. Specializing in clean modern architecture, sub-second load times, and frictionless user experiences.
@@ -221,11 +241,11 @@
                </div>
             </div>
 
-            <!-- Profile Visual -->
-            <div class="hero__visual">
+            <!-- Profile Visual (Desktop: Right column) -->
+            <div class="hero__visual hero__visual-desktop">
                <div class="hero__image-wrapper">
                   <div class="hero__image-inner">
-                     <img src="assets/img/virander.jpg" alt="Virander Kumar - Full-Stack & Frontend Web Developer" class="hero__img" fetchpriority="high">
+                     <img src="assets/img/virander.jpg" alt="Virander Kumar - Full-Stack & Frontend Web Developer" class="hero__img" loading="lazy">
                   </div>
                </div>
 
@@ -241,6 +261,7 @@
                </div>
             </div>
          </div>
+
 
          <!-- Global Client Credibility Strip -->
          <div class="trust-strip">
