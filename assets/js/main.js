@@ -1,96 +1,114 @@
 /**
- * Virander Kumar - Modern Developer Portfolio 2026
- * Core JavaScript Logic
+ * Virander Kumar — Developer Portfolio (2026 Edition)
+ * Aura Obsidian Interaction & Performance Script
  */
 
 document.addEventListener('DOMContentLoaded', () => {
 
-      /*=============== MOBILE NAVIGATION SIDE DRAWER ===============*/
-   const navMenu = document.getElementById('nav-menu'),
-         navToggle = document.getElementById('nav-toggle'),
-         navClose = document.getElementById('nav-close'),
-         navOverlay = document.getElementById('nav-overlay'),
-         navLinks = document.querySelectorAll('.nav__link');
+   /*=============== 1. DYNAMIC MOUSE SPOTLIGHT ON BENTO CARDS ===============*/
+   const spotlightCards = document.querySelectorAll('.spotlight-card');
 
-   // Explicitly ensure drawer is closed on load
-   if (navMenu) navMenu.classList.remove('show-menu');
-   if (navOverlay) navOverlay.classList.remove('show-overlay');
-   document.body.style.overflow = '';
+   spotlightCards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+         const rect = card.getBoundingClientRect();
+         const x = e.clientX - rect.left;
+         const y = e.clientY - rect.top;
+         card.style.setProperty('--mouse-x', `${x}px`);
+         card.style.setProperty('--mouse-y', `${y}px`);
+      });
+   });
+
+
+   /*=============== 2. LIVE CLOCK (IST / GMT+5:30) ===============*/
+   const clockDisplay = document.getElementById('clock-display');
+   const navClockTime = document.getElementById('nav-clock-time');
+
+   function updateLiveClock() {
+      const now = new Date();
+      // Format to IST
+      const options = {
+         timeZone: 'Asia/Kolkata',
+         hour: '2-digit',
+         minute: '2-digit',
+         second: '2-digit',
+         hour12: true
+      };
+
+      try {
+         const formatter = new Intl.DateTimeFormat('en-US', options);
+         const timeString = formatter.format(now);
+         
+         if (clockDisplay) {
+            clockDisplay.textContent = `${timeString} IST`;
+         }
+         if (navClockTime) {
+            const shortOptions = { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', hour12: true };
+            navClockTime.textContent = `${new Intl.DateTimeFormat('en-US', shortOptions).format(now)} IST`;
+         }
+      } catch (err) {
+         // Fallback
+         const fallback = now.toLocaleTimeString();
+         if (clockDisplay) clockDisplay.textContent = `${fallback} IST`;
+      }
+   }
+
+   updateLiveClock();
+   setInterval(updateLiveClock, 1000);
+
+
+   /*=============== 3. MOBILE NAVIGATION DRAWER ===============*/
+   const navMenu = document.getElementById('nav-menu');
+   const navToggle = document.getElementById('nav-toggle');
+   const navClose = document.getElementById('nav-close');
+   const navBackdrop = document.getElementById('nav-backdrop');
+   const navLinks = document.querySelectorAll('.nav__link');
 
    const openMenu = () => {
-      if (navMenu) {
-         navMenu.classList.add('show-menu');
-         if (navOverlay) navOverlay.classList.add('show-overlay');
-         document.body.style.overflow = 'hidden';
-      }
+      if (navMenu) navMenu.classList.add('show-menu');
+      if (navBackdrop) navBackdrop.classList.add('show-backdrop');
+      document.body.style.overflow = 'hidden';
    };
 
    const closeMenu = () => {
-      if (navMenu) {
-         navMenu.classList.remove('show-menu');
-         if (navOverlay) navOverlay.classList.remove('show-overlay');
-         document.body.style.overflow = '';
-      }
+      if (navMenu) navMenu.classList.remove('show-menu');
+      if (navBackdrop) navBackdrop.classList.remove('show-backdrop');
+      document.body.style.overflow = '';
    };
 
-   // Toggle button click
    if (navToggle) {
       navToggle.addEventListener('click', (e) => {
          e.stopPropagation();
-         if (navMenu && navMenu.classList.contains('show-menu')) {
-            closeMenu();
-         } else {
-            openMenu();
-         }
+         navMenu && navMenu.classList.contains('show-menu') ? closeMenu() : openMenu();
       });
    }
 
-   // Close button click
-   if (navClose) {
-      navClose.addEventListener('click', (e) => {
-         e.stopPropagation();
-         closeMenu();
-      });
-   }
+   if (navClose) navClose.addEventListener('click', closeMenu);
+   if (navBackdrop) navBackdrop.addEventListener('click', closeMenu);
 
-   // Backdrop overlay click
-   if (navOverlay) {
-      navOverlay.addEventListener('click', closeMenu);
-   }
-
-   // Close on any link click
    navLinks.forEach(link => {
       link.addEventListener('click', closeMenu);
    });
 
-   // Close on click outside or escape key
-   document.addEventListener('click', (e) => {
-      if (navMenu && navMenu.classList.contains('show-menu') && !navMenu.contains(e.target) && e.target !== navToggle) {
-         closeMenu();
-      }
-   });
-
    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-         closeMenu();
-      }
+      if (e.key === 'Escape') closeMenu();
    });
 
 
-   /*=============== SCROLL PROGRESS & BLUR HEADER ===============*/
+   /*=============== 4. SCROLL PROGRESS & BLUR HEADER ===============*/
    const scrollProgressBar = document.getElementById('scroll-progress');
    const header = document.getElementById('header');
    const scrollUpBtn = document.getElementById('scroll-up');
+   const sections = document.querySelectorAll('section[id]');
 
    const handleScroll = () => {
       const scrollY = window.scrollY;
 
-      // Header blur
+      // Blur header
       if (header) {
          scrollY >= 40 ? header.classList.add('blur-header') : header.classList.remove('blur-header');
       }
 
-      // Scroll progress bar
+      // Scroll progress
       if (scrollProgressBar) {
          const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
          if (totalHeight > 0) {
@@ -101,126 +119,96 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Scroll to top button
       if (scrollUpBtn) {
-         scrollY >= 350 ? scrollUpBtn.classList.add('show-scroll') : scrollUpBtn.classList.remove('show-scroll');
+         scrollY >= 400 ? scrollUpBtn.classList.add('show-scroll') : scrollUpBtn.classList.remove('show-scroll');
       }
 
-      // Active nav link spy
-      updateActiveSection(scrollY);
-   };
-
-   window.addEventListener('scroll', handleScroll, { passive: true });
-
-   /*=============== SCROLL SECTIONS ACTIVE LINK SPY ===============*/
-   const sections = document.querySelectorAll('section[id]');
-
-   function updateActiveSection(scrollDown) {
-      const headerOffset = 90;
-
+      // Active Section Spy
+      const headerOffset = 110;
       sections.forEach(current => {
-         const sectionHeight = current.offsetHeight,
-               sectionTop = current.offsetTop - headerOffset,
-               sectionId = current.getAttribute('id'),
-               link = document.querySelector(`.nav__menu a[href*='${sectionId}']`);
+         const sectionHeight = current.offsetHeight;
+         const sectionTop = current.offsetTop - headerOffset;
+         const sectionId = current.getAttribute('id');
+         const link = document.querySelector(`.nav__list a[href*='${sectionId}']`);
 
          if (link) {
-            if (scrollDown >= sectionTop && scrollDown < sectionTop + sectionHeight) {
+            if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
                link.classList.add('active-link');
             } else {
                link.classList.remove('active-link');
             }
          }
       });
-   }
+   };
 
-   /*=============== PROJECT FILTER SYSTEM ===============*/
+   window.addEventListener('scroll', handleScroll, { passive: true });
+   handleScroll();
+
+
+   /*=============== 5. PROJECT FILTER SYSTEM ===============*/
    const filterBtns = document.querySelectorAll('.filter-btn');
    const projectCards = document.querySelectorAll('.project-card');
 
    filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
-         // Update active button
          filterBtns.forEach(b => b.classList.remove('active-filter'));
          btn.classList.add('active-filter');
 
          const filterValue = btn.getAttribute('data-filter');
 
          projectCards.forEach(card => {
-            const cardCategory = card.getAttribute('data-category');
+            const cardCategory = card.getAttribute('data-category') || '';
+            const categories = cardCategory.split(' ');
 
-            if (filterValue === 'all' || cardCategory === filterValue) {
+            if (filterValue === 'all' || categories.includes(filterValue)) {
                card.style.opacity = '0';
                card.style.display = 'flex';
                setTimeout(() => {
-                  card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                  card.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
                   card.style.opacity = '1';
                   card.style.transform = 'translateY(0)';
-               }, 50);
+               }, 20);
             } else {
-               card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+               card.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
                card.style.opacity = '0';
                card.style.transform = 'translateY(15px)';
                setTimeout(() => {
                   card.style.display = 'none';
-               }, 300);
+               }, 250);
             }
          });
       });
    });
 
-   /*=============== FAQ ACCORDION SYSTEM ===============*/
+
+   /*=============== 6. FAQ ACCORDION ===============*/
    const faqItems = document.querySelectorAll('.faq-item');
+
    faqItems.forEach(item => {
-      const questionBtn = item.querySelector('.faq-question');
+      const question = item.querySelector('.faq-question');
       const answer = item.querySelector('.faq-answer');
 
-      if (questionBtn && answer) {
-         questionBtn.addEventListener('click', () => {
-            const isActive = item.classList.contains('active');
+      if (question && answer) {
+         question.addEventListener('click', () => {
+            const isActive = item.classList.contains('active-faq');
 
-            // Close other items for neat accordion feel
+            // Close all
             faqItems.forEach(otherItem => {
-               if (otherItem !== item) {
-                  otherItem.classList.remove('active');
-                  const otherAnswer = otherItem.querySelector('.faq-answer');
-                  if (otherAnswer) otherAnswer.style.maxHeight = null;
-               }
+               otherItem.classList.remove('active-faq');
+               const otherAnswer = otherItem.querySelector('.faq-answer');
+               if (otherAnswer) otherAnswer.style.maxHeight = null;
             });
 
-            // Toggle active state
-            if (isActive) {
-               item.classList.remove('active');
-               answer.style.maxHeight = null;
-            } else {
-               item.classList.add('active');
-               answer.style.maxHeight = answer.scrollHeight + 'px';
+            // Toggle current
+            if (!isActive) {
+               item.classList.add('active-faq');
+               answer.style.maxHeight = answer.scrollHeight + 30 + 'px';
             }
          });
       }
    });
 
-   /*=============== LIVE TIMEZONE CLOCK ===============*/
-   const liveClockEl = document.getElementById('live-clock-time');
-   const updateClock = () => {
-      if (!liveClockEl) return;
-      try {
-         const now = new Date();
-         const options = {
-            timeZone: 'Asia/Kolkata',
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit',
-            hour12: true
-         };
-         const timeString = new Intl.DateTimeFormat('en-US', options).format(now);
-         liveClockEl.textContent = `${timeString} IST (GMT+5:30)`;
-      } catch (e) {
-         liveClockEl.textContent = 'Active Now (GMT+5:30)';
-      }
-   };
-   updateClock();
-   setInterval(updateClock, 1000);
 
-   /*=============== CONTACT FORM & SUBMISSION ===============*/
+   /*=============== 7. CONTACT FORM SUBMISSION ===============*/
    const contactForm = document.getElementById('contact-form');
    const contactMessage = document.getElementById('contact-message');
    const submitBtn = document.getElementById('form-submit-btn');
@@ -229,129 +217,75 @@ document.addEventListener('DOMContentLoaded', () => {
       contactForm.addEventListener('submit', (e) => {
          e.preventDefault();
 
-         if (!contactForm.checkValidity()) {
-            contactForm.reportValidity();
-            return;
-         }
+         if (!submitBtn) return;
+         const originalContent = submitBtn.innerHTML;
 
-         // Button loading state
-         const originalBtnContent = submitBtn.innerHTML;
+         // Loading UI
          submitBtn.disabled = true;
-         submitBtn.innerHTML = `<span>Sending Inquiry...</span> <i class="ri-loader-4-line" style="animation: spin 1s linear infinite;"></i>`;
+         submitBtn.innerHTML = `<span>Sending inquiry...</span> <i class="ri-loader-4-line spinner"></i>`;
 
-         // Injected CSS for spin animation if needed
-         if (!document.getElementById('spin-keyframes')) {
+         // Spinner animation style check
+         if (!document.getElementById('spinner-anim')) {
             const style = document.createElement('style');
-            style.id = 'spin-keyframes';
-            style.textContent = `@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }`;
+            style.id = 'spinner-anim';
+            style.textContent = `.spinner { animation: spin 0.8s linear infinite; display: inline-block; } @keyframes spin { to { transform: rotate(360deg); } }`;
             document.head.appendChild(style);
          }
 
          const serviceID = 'service_portfolio';
          const templateID = 'template_portfolio';
-         const publicKey = 'YOUR_PUBLIC_KEY';
+         const publicKey = 'YOUR_PUBLIC_KEY'; // Replace with your real EmailJS key
 
          const handleSuccess = () => {
             submitBtn.disabled = false;
-            submitBtn.innerHTML = originalBtnContent;
+            submitBtn.innerHTML = originalContent;
 
-            contactMessage.className = 'form-status status-success';
-            contactMessage.textContent = 'Thank you! Your message has been sent successfully. I will get back to you within 24 hours.';
+            if (contactMessage) {
+               contactMessage.className = 'form-status status-success';
+               contactMessage.textContent = 'Thank you! Your inquiry was sent successfully. Virander will reply within 2-4 hours.';
+            }
 
-            showToast('Inquiry sent! I will reply shortly.');
+            window.showToast('Inquiry sent! I will review and reply shortly.');
             contactForm.reset();
 
             setTimeout(() => {
-               contactMessage.textContent = '';
-               contactMessage.className = 'form-status';
+               if (contactMessage) {
+                  contactMessage.textContent = '';
+                  contactMessage.className = 'form-status';
+               }
             }, 6000);
          };
 
-         const handleError = (error) => {
+         const handleError = () => {
             submitBtn.disabled = false;
-            submitBtn.innerHTML = originalBtnContent;
+            submitBtn.innerHTML = originalContent;
 
-            contactMessage.className = 'form-status status-error';
-            contactMessage.textContent = 'Oops! Message could not be sent. Please email directly to KC8844906@gmail.com';
+            if (contactMessage) {
+               contactMessage.className = 'form-status status-error';
+               contactMessage.textContent = 'Oops! Please send an email directly to KC8844906@gmail.com or WhatsApp +91 8571840837.';
+            }
 
             setTimeout(() => {
-               contactMessage.textContent = '';
-               contactMessage.className = 'form-status';
+               if (contactMessage) {
+                  contactMessage.textContent = '';
+                  contactMessage.className = 'form-status';
+               }
             }, 6000);
          };
 
+         // If EmailJS configured
          if (typeof emailjs !== 'undefined' && publicKey !== 'YOUR_PUBLIC_KEY') {
             emailjs.sendForm(serviceID, templateID, '#contact-form', publicKey)
                .then(handleSuccess, handleError);
          } else {
-            // High fidelity simulation
-            setTimeout(handleSuccess, 900);
+            // High fidelity fast feedback simulation
+            setTimeout(handleSuccess, 800);
          }
       });
    }
 
-   /*=============== SCROLL REVEAL ANIMATIONS ===============*/
-   if (typeof ScrollReveal !== 'undefined') {
-      const sr = ScrollReveal({
-         origin: 'top',
-         distance: '40px',
-         duration: 1600,
-         delay: 150,
-         easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
-         reset: false
-      });
-
-      // Hero Elements
-      sr.reveal('.hero__data', { delay: 100 });
-      sr.reveal('.hero__visual-desktop', { origin: 'right', delay: 250 });
-      sr.reveal('.trust-strip', { origin: 'bottom', delay: 200 });
-
-      // Section Titles & Subtitles
-      sr.reveal('.section__header', { origin: 'top' });
-
-      // About
-      sr.reveal('.about__intro', { origin: 'left', delay: 150 });
-      sr.reveal('.about__bento', { origin: 'right', delay: 250 });
-
-      // Why Choose Me
-      sr.reveal('.why-card', { interval: 100, origin: 'bottom' });
-
-      // Skills
-      sr.reveal('.skills__category', { interval: 120, origin: 'bottom' });
-
-      // Projects
-      sr.reveal('.work__filters', { origin: 'top', delay: 80 });
-      sr.reveal('.project-card', { interval: 100, origin: 'bottom' });
-
-      // Process
-      sr.reveal('.process-card', { interval: 100, origin: 'bottom' });
-
-      // Services
-      sr.reveal('.service-card', { interval: 100, origin: 'bottom' });
-
-      // Experience Timeline
-      sr.reveal('.timeline-item', { interval: 120, origin: 'left' });
-
-      // Testimonials
-      sr.reveal('.testimonial-card', { interval: 100, origin: 'bottom' });
-
-      // Pricing / Engagement Models
-      sr.reveal('.pricing-card', { interval: 120, origin: 'bottom' });
-
-      // FAQ
-      sr.reveal('.faq-item', { interval: 80, origin: 'bottom' });
-
-      // CTA Banner
-      sr.reveal('.cta-banner', { origin: 'bottom', scale: 0.96 });
-
-      // Contact
-      sr.reveal('.contact__info-card', { origin: 'left', delay: 150 });
-      sr.reveal('.contact__form-card', { origin: 'right', delay: 250 });
-   }
-
-   // Initialize on load
-   handleScroll();
 });
+
 
 /*=============== GLOBAL TOAST & CLIPBOARD HELPER ===============*/
 window.showToast = function(message) {
