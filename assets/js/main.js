@@ -1,62 +1,11 @@
 /**
- * Virander Kumar — Developer Portfolio (2026 Edition)
- * Aura Obsidian Interaction & Performance Script
+ * Virander Kumar — Senior Developer Portfolio Script
+ * Clean, lightweight, dependency-free vanilla JavaScript
  */
 
 document.addEventListener('DOMContentLoaded', () => {
 
-   /*=============== 1. DYNAMIC MOUSE SPOTLIGHT ON BENTO CARDS ===============*/
-   const spotlightCards = document.querySelectorAll('.spotlight-card');
-
-   spotlightCards.forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-         const rect = card.getBoundingClientRect();
-         const x = e.clientX - rect.left;
-         const y = e.clientY - rect.top;
-         card.style.setProperty('--mouse-x', `${x}px`);
-         card.style.setProperty('--mouse-y', `${y}px`);
-      });
-   });
-
-
-   /*=============== 2. LIVE CLOCK (IST / GMT+5:30) ===============*/
-   const clockDisplay = document.getElementById('clock-display');
-   const navClockTime = document.getElementById('nav-clock-time');
-
-   function updateLiveClock() {
-      const now = new Date();
-      // Format to IST
-      const options = {
-         timeZone: 'Asia/Kolkata',
-         hour: '2-digit',
-         minute: '2-digit',
-         second: '2-digit',
-         hour12: true
-      };
-
-      try {
-         const formatter = new Intl.DateTimeFormat('en-US', options);
-         const timeString = formatter.format(now);
-         
-         if (clockDisplay) {
-            clockDisplay.textContent = `${timeString} IST`;
-         }
-         if (navClockTime) {
-            const shortOptions = { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', hour12: true };
-            navClockTime.textContent = `${new Intl.DateTimeFormat('en-US', shortOptions).format(now)} IST`;
-         }
-      } catch (err) {
-         // Fallback
-         const fallback = now.toLocaleTimeString();
-         if (clockDisplay) clockDisplay.textContent = `${fallback} IST`;
-      }
-   }
-
-   updateLiveClock();
-   setInterval(updateLiveClock, 1000);
-
-
-   /*=============== 3. MOBILE NAVIGATION DRAWER ===============*/
+   /*=============== 1. MOBILE NAVIGATION DRAWER ===============*/
    const navMenu = document.getElementById('nav-menu');
    const navToggle = document.getElementById('nav-toggle');
    const navClose = document.getElementById('nav-close');
@@ -94,21 +43,15 @@ document.addEventListener('DOMContentLoaded', () => {
    });
 
 
-   /*=============== 4. SCROLL PROGRESS & BLUR HEADER ===============*/
+   /*=============== 2. SCROLL PROGRESS & ACTIVE LINK SPY ===============*/
    const scrollProgressBar = document.getElementById('scroll-progress');
-   const header = document.getElementById('header');
    const scrollUpBtn = document.getElementById('scroll-up');
    const sections = document.querySelectorAll('section[id]');
 
    const handleScroll = () => {
       const scrollY = window.scrollY;
 
-      // Blur header
-      if (header) {
-         scrollY >= 40 ? header.classList.add('blur-header') : header.classList.remove('blur-header');
-      }
-
-      // Scroll progress
+      // Scroll progress bar
       if (scrollProgressBar) {
          const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
          if (totalHeight > 0) {
@@ -117,13 +60,13 @@ document.addEventListener('DOMContentLoaded', () => {
          }
       }
 
-      // Scroll to top button
+      // Scroll to top button visibility
       if (scrollUpBtn) {
          scrollY >= 400 ? scrollUpBtn.classList.add('show-scroll') : scrollUpBtn.classList.remove('show-scroll');
       }
 
       // Active Section Spy
-      const headerOffset = 110;
+      const headerOffset = 100;
       sections.forEach(current => {
          const sectionHeight = current.offsetHeight;
          const sectionTop = current.offsetTop - headerOffset;
@@ -144,71 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
    handleScroll();
 
 
-   /*=============== 5. PROJECT FILTER SYSTEM ===============*/
-   const filterBtns = document.querySelectorAll('.filter-btn');
-   const projectCards = document.querySelectorAll('.project-card');
-
-   filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-         filterBtns.forEach(b => b.classList.remove('active-filter'));
-         btn.classList.add('active-filter');
-
-         const filterValue = btn.getAttribute('data-filter');
-
-         projectCards.forEach(card => {
-            const cardCategory = card.getAttribute('data-category') || '';
-            const categories = cardCategory.split(' ');
-
-            if (filterValue === 'all' || categories.includes(filterValue)) {
-               card.style.opacity = '0';
-               card.style.display = 'flex';
-               setTimeout(() => {
-                  card.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
-                  card.style.opacity = '1';
-                  card.style.transform = 'translateY(0)';
-               }, 20);
-            } else {
-               card.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
-               card.style.opacity = '0';
-               card.style.transform = 'translateY(15px)';
-               setTimeout(() => {
-                  card.style.display = 'none';
-               }, 250);
-            }
-         });
-      });
-   });
-
-
-   /*=============== 6. FAQ ACCORDION ===============*/
-   const faqItems = document.querySelectorAll('.faq-item');
-
-   faqItems.forEach(item => {
-      const question = item.querySelector('.faq-question');
-      const answer = item.querySelector('.faq-answer');
-
-      if (question && answer) {
-         question.addEventListener('click', () => {
-            const isActive = item.classList.contains('active-faq');
-
-            // Close all
-            faqItems.forEach(otherItem => {
-               otherItem.classList.remove('active-faq');
-               const otherAnswer = otherItem.querySelector('.faq-answer');
-               if (otherAnswer) otherAnswer.style.maxHeight = null;
-            });
-
-            // Toggle current
-            if (!isActive) {
-               item.classList.add('active-faq');
-               answer.style.maxHeight = answer.scrollHeight + 30 + 'px';
-            }
-         });
-      }
-   });
-
-
-   /*=============== 7. CONTACT FORM SUBMISSION ===============*/
+   /*=============== 3. CONTACT FORM SUBMISSION ===============*/
    const contactForm = document.getElementById('contact-form');
    const contactMessage = document.getElementById('contact-message');
    const submitBtn = document.getElementById('form-submit-btn');
@@ -220,21 +99,12 @@ document.addEventListener('DOMContentLoaded', () => {
          if (!submitBtn) return;
          const originalContent = submitBtn.innerHTML;
 
-         // Loading UI
          submitBtn.disabled = true;
-         submitBtn.innerHTML = `<span>Sending inquiry...</span> <i class="ri-loader-4-line spinner"></i>`;
-
-         // Spinner animation style check
-         if (!document.getElementById('spinner-anim')) {
-            const style = document.createElement('style');
-            style.id = 'spinner-anim';
-            style.textContent = `.spinner { animation: spin 0.8s linear infinite; display: inline-block; } @keyframes spin { to { transform: rotate(360deg); } }`;
-            document.head.appendChild(style);
-         }
+         submitBtn.innerHTML = `Sending message...`;
 
          const serviceID = 'service_portfolio';
          const templateID = 'template_portfolio';
-         const publicKey = 'YOUR_PUBLIC_KEY'; // Replace with your real EmailJS key
+         const publicKey = 'YOUR_PUBLIC_KEY'; // Replace with real key if needed
 
          const handleSuccess = () => {
             submitBtn.disabled = false;
@@ -242,10 +112,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (contactMessage) {
                contactMessage.className = 'form-status status-success';
-               contactMessage.textContent = 'Thank you! Your inquiry was sent successfully. Virander will reply within 2-4 hours.';
+               contactMessage.textContent = 'Thank you! Your message was sent successfully. I will get back to you soon.';
             }
 
-            window.showToast('Inquiry sent! I will review and reply shortly.');
+            window.showToast('Message sent! Thank you.');
             contactForm.reset();
 
             setTimeout(() => {
@@ -262,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (contactMessage) {
                contactMessage.className = 'form-status status-error';
-               contactMessage.textContent = 'Oops! Please send an email directly to KC8844906@gmail.com or WhatsApp +91 8571840837.';
+               contactMessage.textContent = 'Oops! Please send an email directly to KC8844906@gmail.com.';
             }
 
             setTimeout(() => {
@@ -273,13 +143,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 6000);
          };
 
-         // If EmailJS configured
          if (typeof emailjs !== 'undefined' && publicKey !== 'YOUR_PUBLIC_KEY') {
             emailjs.sendForm(serviceID, templateID, '#contact-form', publicKey)
                .then(handleSuccess, handleError);
          } else {
-            // High fidelity fast feedback simulation
-            setTimeout(handleSuccess, 800);
+            setTimeout(handleSuccess, 700);
          }
       });
    }
@@ -287,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-/*=============== GLOBAL TOAST & CLIPBOARD HELPER ===============*/
+/*=============== GLOBAL CLIPBOARD & TOAST HELPER ===============*/
 window.showToast = function(message) {
    const toast = document.getElementById('toast-notification');
    const toastText = document.getElementById('toast-text');
@@ -298,7 +166,7 @@ window.showToast = function(message) {
 
       setTimeout(() => {
          toast.classList.remove('show-toast');
-      }, 3500);
+      }, 3000);
    }
 };
 
